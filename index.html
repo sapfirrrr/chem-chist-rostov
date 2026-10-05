@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АкваЧист — Химчистка мебели в Ростове-на-Дону | Выезд за 60 минут</title>
+<meta name="description" content="Профессиональная химчистка мебели на дому в Ростове-на-Дону. Диваны, кресла, матрасы, ковры. Немецкое оборудование, безопасные средства. Выезд за 60 минут. ☎ 8 918 554-52-10">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============ БАЗА ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#05080f;
+  --bg2:#080d1a;
+  --card:rgba(255,255,255,.045);
+  --stroke:rgba(255,255,255,.10);
+  --txt:#eaf2ff;
+  --muted:#8fa3c0;
+  --cyan:#00e5ff;
+  --aqua:#25f4c1;
+  --violet:#7b5cff;
+  --pink:#ff4d94;
+  --gold:#ffc93c;
+  --grad:linear-gradient(120deg,#00e5ff 0%,#25f4c1 45%,#7b5cff 100%);
+  --grad2:linear-gradient(135deg,#7b5cff,#00e5ff);
+}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:'Manrope',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--txt);
+  overflow-x:hidden;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.font-d{font-family:'Unbounded',sans-serif;line-height:1.15;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button,input,textarea,select{font-family:inherit}
+::selection{background:var(--aqua);color:#04121a}
+
+/* фон-свечения */
+.orb{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;pointer-events:none;z-index:0}
+.orb.o1{width:620px;height:620px;background:#00e5ff;top:-260px;left:-200px;animation:float1 18s ease-in-out infinite}
+.orb.o2{width:560px;height:560px;background:#7b5cff;top:35%;right:-240px;animation:float2 22s ease-in-out infinite}
+.orb.o3{width:520px;height:520px;background:#25f4c1;bottom:-200px;left:20%;opacity:.28;animation:float1 26s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,60px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,80px)}}
+
+/* сетка */
+.grid-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 20%,transparent 75%);
+}
+
+/* ============ НАВИГАЦИЯ ============ */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:.4s cubic-bezier(.4,0,.2,1);
+  padding:18px 0;
+}
+header.scrolled{
+  padding:10px 0;
+  background:rgba(5,8,15,.78);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--stroke);
+}
+.nav{
+  max-width:1280px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Unbounded';font-weight:800;font-size:19px;letter-spacing:-.03em}
+.logo-mark{
+  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+  background:var(--grad);box-shadow:0 8px 30px rgba(0,229,255,.45);
+  position:relative;flex-shrink:0;
+}
+.logo-mark svg{width:24px;height:24px}
+.logo small{display:block;font-family:'Manrope';font-weight:500;font-size:10.5px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-top:1px}
+
+.menu{display:flex;gap:6px;align-items:center}
+.menu a{
+  padding:9px 15px;border-radius:11px;font-size:14px;font-weight:600;color:var(--muted);
+  transition:.25s;position:relative;white-space:nowrap;
+}
+.menu a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.menu a.active{color:#fff;background:rgba(0,229,255,.12);box-shadow:inset 0 0 0 1px rgba(0,229,255,.25)}
+
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-phone{display:flex;align-items:center;gap:9px;font-weight:800;font-size:15px;white-space:nowrap}
+.nav-phone svg{width:17px;height:17px;color:var(--aqua)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 26px;border-radius:14px;font-weight:700;font-size:15px;
+  border:none;cursor:pointer;transition:.3s cubic-bezier(.4,0,.2,1);white-space:nowrap;
+  position:relative;overflow:hidden;
+}
+.btn svg{width:18px;height:18px}
+.btn-primary{
+  background:var(--grad);color:#03121a;
+  box-shadow:0 10px 34px rgba(0,229,255,.38);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 46px rgba(0,229,255,.55)}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
+  transform:translateX(-120%);transition:.7s;
+}
+.btn-primary:hover::after{transform:translateX(120%)}
+.btn-ghost{
+  background:rgba(255,255,255,.05);color:#fff;
+  box-shadow:inset 0 0 0 1px var(--stroke);backdrop-filter:blur(10px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgba(0,229,255,.4)}
+.btn-lg{padding:18px 36px;font-size:16.5px;border-radius:16px}
+
+.burger{display:none;width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.05);
+  box-shadow:inset 0 0 0 1px var(--stroke);border:none;cursor:pointer;position:relative}
+.burger span{position:absolute;left:13px;width:20px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.burger span:nth-child(1){top:16px}
+.burger span:nth-child(2){top:22px}
+.burger span:nth-child(3){top:28px}
+.burger.on span:nth-child(1){transform:rotate(45deg);top:22px}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:rotate(-45deg);top:22px}
+
+/* ============ СЕКЦИИ ============ */
+section{position:relative;z-index:2;padding:110px 0}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 16px;border-radius:100px;font-size:12.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);
+  background:rgba(37,244,193,.08);box-shadow:inset 0 0 0 1px rgba(37,244,193,.25);
+  margin-bottom:22px;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+
+h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
+.grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:17px;max-width:620px;font-weight:400}
+.sec-head{margin-bottom:56px}
+.sec-head.center{text-align:center;display:flex;flex-direction:column;align-items:center}
+.sec-head.center .sub{text-align:center}
+
+/* ============ ГЕРОЙ ============ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+.hero h1{font-size:clamp(36px,5.4vw,68px);font-weight:800;margin-bottom:26px}
+.hero h1 .line{display:block;overflow:hidden}
+.hero p.lead{font-size:18px;color:#b3c4dc;max-width:540px;margin-bottom:38px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:46px}
+
+.hero-stats{display:flex;gap:38px;flex-wrap:wrap}
+.hstat b{display:block;font-family:'Unbounded';font-size:32px;font-weight:800;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hstat span{font-size:13.5px;color:var(--muted);font-weight:500}
+
+/* карточка-визуал */
+.hero-visual{position:relative;height:520px;display:grid;place-items:center}
+.sofa-card{
+  position:relative;width:100%;max-width:440px;border-radius:30px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));
+  box-shadow:inset 0 0 0 1px var(--stroke),0 40px 90px rgba(0,0,0,.6);
+  backdrop-filter:blur(14px);
+  padding:34px;
+  animation:floatCard 7s ease-in-out infinite;
+}
+@keyframes floatCard{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-18px) rotate(1deg)}}
+.sofa-card .badge-live{
+  position:absolute;top:20px;right:20px;display:flex;align-items:center;gap:7px;
+  padding:7px 13px;border-radius:100px;font-size:11.5px;font-weight:700;
+  background:rgba(37,244,193,.14);color:var(--aqua);box-shadow:inset 0 0 0 1px rgba(37,244,193,.3);
+}
+.sofa-card .badge-live i{width:7px;height:7px;border-radius:50%;background:var(--aqua);animation:pulse 1.6s infinite;display:block}
+
+.sofa-svg{width:100%;height:auto;margin:16px 0 8px}
+.sofa-caption{font-family:'Unbounded';font-weight:600;font-size:17px;margin-bottom:6px}
+.sofa-sub{font-size:13.5px;color:var(--muted);margin-bottom:20px}
+.progressbar{height:8px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden}
+.progressbar i{display:block;height:100%;width:0;border-radius:100px;background:var(--grad);
+  box-shadow:0 0 20px rgba(0,229,255,.6);animation:fill 3.2s ease-in-out infinite}
+@keyframes fill{0%{width:4%}55%{width:96%}100%{width:96%}}
+
+/* пузырьки */
+.bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bub{position:absolute;border-radius:50%;border:1.5px solid rgba(0,229,255,.35);
+  background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.55),rgba(0,229,255,.08));
+  animation:rise linear infinite}
+@keyframes rise{
+  0%{transform:translateY(0) scale(.6);opacity:0}
+  12%{opacity:.85}
+  100%{transform:translateY(-560px) scale(1.15);opacity:0}
+}
+
+/* бегущая строка */
+.marquee{
+  position:relative;z-index:2;border-top:1px solid var(--stroke);border-bottom:1px solid var(--stroke);
+  background:rgba(255,255,255,.022);padding:20px 0;overflow:hidden;
+  display:flex;gap:0;user-select:none;
+}
+.marquee-track{display:flex;gap:52px;white-space:nowrap;animation:scrollx 32s linear infinite;flex-shrink:0}
+@keyframes scrollx{to{transform:translateX(-100%)}}
+.marquee-track span{
+  font-family:'Unbounded';font-size:19px;font-weight:600;color:rgba(255,255,255,.32);
+  display:flex;align-items:center;gap:52px;
+}
+.marquee-track span::after{content:'✦';color:var(--cyan);font-size:14px}
+
+/* ============ УСЛУГИ ============ */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{
+  position:relative;padding:34px 30px;border-radius:24px;overflow:hidden;
+  background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);
+  transition:.45s cubic-bezier(.4,0,.2,1);
+}
+.svc::before{
+  content:'';position:absolute;inset:0;opacity:0;transition:.45s;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(0,229,255,.16),transparent 65%);
+}
+.svc:hover{transform:translateY(-8px);box-shadow:inset 0 0 0 1px rgba(0,229,255,.35),0 26px 60px rgba(0,0,0,.5)}
+.svc:hover::before{opacity:1}
+.svc-ico{
+  width:60px;height:60px;border-radius:18px;display:grid;place-items:center;margin-bottom:22px;
+  background:linear-gradient(140deg,rgba(0,229,255,.18),rgba(123,92,255,.14));
+  box-shadow:inset 0 0 0 1px rgba(0,229,255,.22);
+  transition:.45s;
+}
+.svc:hover .svc-ico{transform:scale(1.08) rotate(-6deg)}
+.svc-ico svg{width:29px;height:29px;stroke:var(--cyan)}
+.svc h3{font-size:20px;font-weight:700;margin-bottom:11px;position:relative}
+.svc p{color:var(--muted);font-size:14.5px;position:relative;margin-bottom:18px}
+.svc .price-from{
+  display:inline-flex;align-items:baseline;gap:6px;font-family:'Unbounded';font-weight:800;font-size:20px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;
+}
+.svc .price-from small{font-size:11.5px;color:var(--muted);font-family:'Manrope';font-weight:600;-webkit-text-fill-color:var(--muted)}
+
+/* ============ КАК РАБОТАЕМ ============ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
+.steps::before{
+  content:'';position:absolute;top:39px;left:9%;right:9%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(0,229,255,.5),rgba(123,92,255,.5),transparent);
+}
+.step{text-align:center;position:relative}
+.step-num{
+  width:78px;height:78px;margin:0 auto 22px;border-radius:24px;display:grid;place-items:center;
+  font-family:'Unbounded';font-weight:800;font-size:25px;
+  background:linear-gradient(150deg,rgba(0,229,255,.2),rgba(123,92,255,.14));
+  box-shadow:inset 0 0 0 1px rgba(0,229,255,.3),0 0 40px rgba(0,229,255,.16);
+  color:#fff;position:relative;transition:.4s;
+}
+.step:hover .step-num{transform:translateY(-7px) scale(1.06);box-shadow:inset 0 0 0 1px var(--cyan),0 0 60px rgba(0,229,255,.4)}
+.step h4{font-size:17px;margin-bottom:10px;font-weight:700}
+.step p{font-size:14px;color:var(--muted)}
+
+/* ============ ПРЕИМУЩЕСТВА ============ */
+.adv-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center}
+.adv-list{display:grid;gap:16px}
+.adv{
+  display:flex;gap:18px;padding:22px;border-radius:20px;
+  background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;
+}
+.adv:hover{transform:translateX(8px);box-shadow:inset 0 0 0 1px rgba(37,244,193,.35);background:rgba(37,244,193,.05)}
+.adv-ico{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(140deg,rgba(37,244,193,.18),rgba(0,229,255,.1));box-shadow:inset 0 0 0 1px rgba(37,244,193,.24)}
+.adv-ico svg{width:24px;height:24px;stroke:var(--aqua)}
+.adv h4{font-size:16.5px;margin-bottom:5px;font-weight:700}
+.adv p{font-size:14px;color:var(--muted)}
+
+.adv-visual{
+  border-radius:30px;padding:40px;position:relative;overflow:hidden;
+  background:linear-gradient(150deg,rgba(123,92,255,.16),rgba(0,229,255,.07));
+  box-shadow:inset 0 0 0 1px var(--stroke);
+}
+.adv-visual h3{font-size:24px;margin-bottom:28px}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.stat-box{
+  padding:24px 20px;border-radius:18px;background:rgba(5,8,15,.5);
+  box-shadow:inset 0 0 0 1px var(--stroke);
+}
+.stat-box b{font-family:'Unbounded';font-size:30px;font-weight:800;display:block;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
+.stat-box span{font-size:13px;color:var(--muted)}
+
+/* ============ ЦЕНЫ ============ */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.plan{
+  border-radius:26px;padding:38px 32px;position:relative;
+  background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);
+  transition:.45s cubic-bezier(.4,0,.2,1);
+}
+.plan:hover{transform:translateY(-8px)}
+.plan.hot{
+  background:linear-gradient(165deg,rgba(0,229,255,.14),rgba(123,92,255,.1));
+  box-shadow:inset 0 0 0 1.5px rgba(0,229,255,.45),0 30px 70px rgba(0,229,255,.16);
+  transform:scale(1.04);
+}
+.plan.hot:hover{transform:scale(1.04) translateY(-8px)}
+.plan-tag{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  padding:7px 18px;border-radius:100px;font-size:11.5px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#04121a;white-space:nowrap;
+  box-shadow:0 8px 24px rgba(0,229,255,.4);
+}
+.plan h3{font-size:21px;margin-bottom:8px;font-weight:700}
+.plan .desc{font-size:13.5px;color:var(--muted);margin-bottom:24px;min-height:40px}
+.plan .amt{font-family:'Unbounded';font-size:42px;font-weight:800;margin-bottom:4px;line-height:1}
+.plan .amt small{font-size:15px;font-weight:600;color:var(--muted);font-family:'Manrope'}
+.plan .per{font-size:13px;color:var(--muted);margin-bottom:26px}
+.plan ul{list-style:none;display:grid;gap:12px;margin-bottom:30px}
+.plan li{display:flex;gap:11px;font-size:14.5px;color:#c2d2e6;align-items:flex-start}
+.plan li svg{width:18px;height:18px;flex-shrink:0;margin-top:3px;stroke:var(--aqua)}
+.plan .btn{width:100%}
+
+/* ============ ОТЗЫВЫ ============ */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{
+  padding:32px 30px;border-radius:24px;background:var(--card);
+  box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;position:relative;
+}
+.rev:hover{transform:translateY(-7px);box-shadow:inset 0 0 0 1px rgba(255,201,60,.35)}
+.stars{display:flex;gap:4px;margin-bottom:18px}
+.stars svg{width:17px;height:17px;fill:var(--gold)}
+.rev p{font-size:15px;color:#c2d2e6;margin-bottom:24px;font-style:italic}
+.rev-who{display:flex;align-items:center;gap:13px}
+.avatar{
+  width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex-shrink:0;
+  font-family:'Unbounded';font-weight:800;font-size:17px;color:#04121a;background:var(--grad);
+}
+.rev-who b{display:block;font-size:15px;font-weight:700}
+.rev-who span{font-size:12.5px;color:var(--muted)}
+
+/* ============ ГАЛЕРЕЯ ============ */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gal-item{
+  position:relative;border-radius:22px;overflow:hidden;height:230px;
+  box-shadow:inset 0 0 0 1px var(--stroke);transition:.5s;cursor:pointer;
+}
+.gal-item:nth-child(1){grid-column:span 2;height:300px}
+.gal-item:nth-child(6){grid-column:span 2;height:300px}
+.gal-item .fill{
+  position:absolute;inset:0;transition:.6s;
+  background:linear-gradient(140deg,#0c1526,#132038);
+}
+.gal-item:nth-child(1) .fill{background:linear-gradient(140deg,#0a2b3a,#123a52)}
+.gal-item:nth-child(2) .fill{background:linear-gradient(140deg,#1b1030,#2d1a52)}
+.gal-item:nth-child(3) .fill{background:linear-gradient(140deg,#0d2b25,#14453a)}
+.gal-item:nth-child(4) .fill{background:linear-gradient(140deg,#2a1a0c,#4a2f12)}
+.gal-item:nth-child(5) .fill{background:linear-gradient(140deg,#0c1a30,#152a4c)}
+.gal-item:nth-child(6) .fill{background:linear-gradient(140deg,#25102a,#3d1a44)}
+.gal-item::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.13),transparent 55%);
+}
+.gal-item:hover .fill{transform:scale(1.09)}
+.gal-item .lbl{
+  position:absolute;left:22px;bottom:20px;z-index:3;
+  font-family:'Unbounded';font-weight:600;font-size:16px;
+}
+.gal-item .lbl small{display:block;font-family:'Manrope';font-weight:500;font-size:12.5px;color:var(--aqua);margin-top:3px;letter-spacing:.06em}
+.gal-item .chip{
+  position:absolute;top:16px;left:16px;z-index:3;padding:6px 13px;border-radius:100px;
+  font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(37,244,193,.16);color:var(--aqua);backdrop-filter:blur(8px);
+  box-shadow:inset 0 0 0 1px rgba(37,244,193,.3);
+}
+.gal-item svg.decor{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:170px;opacity:.13;z-index:2}
+
+/* ============ FAQ ============ */
+.faq-wrap{max-width:880px;margin:0 auto}
+.faq{
+  border-radius:20px;margin-bottom:14px;overflow:hidden;
+  background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.35s;
+}
+.faq.open{box-shadow:inset 0 0 0 1px rgba(0,229,255,.4);background:rgba(0,229,255,.04)}
+.faq-q{
+  padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  cursor:pointer;font-weight:700;font-size:16.5px;user-select:none;
+}
+.faq-q .plus{
+  width:34px;height:34px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;
+  background:rgba(0,229,255,.1);box-shadow:inset 0 0 0 1px rgba(0,229,255,.25);
+  transition:.4s;position:relative;
+}
+.faq-q .plus::before,.faq-q .plus::after{
+  content:'';position:absolute;background:var(--cyan);border-radius:2px;transition:.4s;
+}
+.faq-q .plus::before{width:13px;height:2px}
+.faq-q .plus::after{width:2px;height:13px}
+.faq.open .plus{transform:rotate(135deg);background:rgba(0,229,255,.22)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.faq-a p{padding:0 28px 26px;color:var(--muted);font-size:15px;max-width:90%}
+
+/* ============ О КОМПАНИИ ============ */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.about-grid p{color:#b3c4dc;font-size:16px;margin-bottom:18px}
+.about-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.badge{
+  padding:11px 18px;border-radius:14px;font-size:13.5px;font-weight:700;
+  background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--stroke);
+  display:flex;align-items:center;gap:9px;
+}
+.badge svg{width:16px;height:16px;stroke:var(--cyan)}
+
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.team-card{
+  padding:28px 24px;border-radius:22px;text-align:center;
+  background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;
+}
+.team-card:hover{transform:translateY(-7px);box-shadow:inset 0 0 0 1px rgba(0,229,255,.35)}
+.team-av{
+  width:74px;height:74px;border-radius:22px;margin:0 auto 18px;display:grid;place-items:center;
+  font-family:'Unbounded';font-weight:800;font-size:26px;color:#04121a;background:var(--grad);
+  box-shadow:0 12px 36px rgba(0,229,255,.3);
+}
+.team-card b{display:block;font-size:16px;margin-bottom:5px;font-weight:700}
+.team-card span{font-size:13px;color:var(--muted)}
+
+/* ============ КОНТАКТЫ ============ */
+.contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:start}
+.contact-info{display:grid;gap:16px}
+.cinfo{
+  display:flex;gap:18px;padding:24px;border-radius:20px;
+  background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;
+}
+.cinfo:hover{box-shadow:inset 0 0 0 1px rgba(0,229,255,.35);transform:translateX(6px)}
+.cinfo-ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex-shrink:0;
+  background:linear-gradient(140deg,rgba(0,229,255,.18),rgba(123,92,255,.12));
+  box-shadow:inset 0 0 0 1px rgba(0,229,255,.24)}
+.cinfo-ico svg{width:24px;height:24px;stroke:var(--cyan)}
+.cinfo small{display:block;font-size:12.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+.cinfo b{font-size:19px;font-weight:800;font-family:'Unbounded';letter-spacing:-.01em}
+.cinfo b a:hover{color:var(--aqua)}
+.cinfo em{display:block;font-style:normal;font-size:13.5px;color:var(--muted);margin-top:4px}
+
+.form-card{
+  padding:40px;border-radius:28px;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,rgba(0,229,255,.09),rgba(123,92,255,.07));
+  box-shadow:inset 0 0 0 1px var(--stroke),0 30px 80px rgba(0,0,0,.5);
+}
+.form-card h3{font-size:25px;margin-bottom:9px}
+.form-card > p{color:var(--muted);font-size:14.5px;margin-bottom:28px}
+.field{margin-bottom:16px}
+.field input,.field select,.field textarea{
+  width:100%;padding:16px 18px;border-radius:14px;font-size:15px;
+  background:rgba(5,8,15,.6);border:1px solid var(--stroke);color:#fff;
+  transition:.3s;outline:none;
+}
+.field input::placeholder,.field textarea::placeholder{color:#5f7391}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:rgba(0,229,255,.6);box-shadow:0 0 0 4px rgba(0,229,255,.1);background:rgba(5,8,15,.85);
+}
+.field select{appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300e5ff' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 18px center;background-size:18px}
+.field select option{background:#0a1120;color:#fff}
+.field textarea{resize:vertical;min-height:96px}
+.form-note{font-size:12.5px;color:var(--muted);margin-top:14px;text-align:center}
+.ok-msg{display:none;padding:16px;border-radius:14px;background:rgba(37,244,193,.12);
+  box-shadow:inset 0 0 0 1px rgba(37,244,193,.35);color:var(--aqua);font-weight:700;text-align:center;margin-top:16px}
+
+/* ============ ФУТЕР ============ */
+footer{
+  position:relative;z-index:2;border-top:1px solid var(--stroke);
+  padding:60px 0 34px;background:rgba(255,255,255,.015);
+}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:48px}
+.foot-top h4{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);margin-bottom:18px;font-weight:700}
+.foot-top ul{list-style:none;display:grid;gap:11px}
+.foot-top ul a{font-size:14.5px;color:var(--muted);transition:.25s}
+.foot-top ul a:hover{color:#fff;padding-left:5px}
+.foot-about p{font-size:14.5px;color:var(--muted);margin:16px 0 20px;max-width:320px}
+.foot-phone{font-family:'Unbounded';font-weight:800;font-size:20px;display:block;margin-bottom:6px}
+.foot-phone:hover{color:var(--aqua)}
+.foot-bottom{
+  border-top:1px solid var(--stroke);padding-top:26px;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-size:13px;color:var(--muted);
+}
+
+/* ============ ПЛАВАЮЩАЯ КНОПКА ============ */
+.fab{
+  position:fixed;right:26px;bottom:26px;z-index:99;
+  width:64px;height:64px;border-radius:22px;display:grid;place-items:center;
+  background:var(--grad);color:#04121a;
+  box-shadow:0 14px 44px rgba(0,229,255,.5);
+  transition:.35s;animation:fabPulse 2.6s ease-in-out infinite;
+}
+.fab:hover{transform:scale(1.1) rotate(-6deg)}
+.fab svg{width:28px;height:28px}
+@keyframes fabPulse{0%,100%{box-shadow:0 14px 44px rgba(0,229,255,.5)}50%{box-shadow:0 14px 60px rgba(0,229,255,.85)}}
+
+/* ============ АНИМАЦИЯ ПОЯВЛЕНИЯ ============ */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ АДАПТИВ ============ */
+@media(max-width:1080px){
+  .menu{display:none}
+  .burger{display:block}
+  .menu.open{
+    display:flex;flex-direction:column;position:fixed;top:76px;left:16px;right:16px;
+    background:rgba(8,13,26,.97);backdrop-filter:blur(24px);
+    border-radius:22px;padding:18px;gap:4px;
+    box-shadow:inset 0 0 0 1px var(--stroke),0 30px 70px rgba(0,0,0,.7);
+  }
+  .menu.open a{padding:15px 18px;font-size:16px;width:100%}
+  .hero-grid,.adv-wrap,.about-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
+  .hero-visual{height:auto;order:-1}
+  .svc-grid,.price-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr);gap:36px 20px}
+  .steps::before{display:none}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .gal-item:nth-child(1),.gal-item:nth-child(6){grid-column:span 2}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .nav-phone span{display:none}
+}
+@media(max-width:680px){
+  section{padding:76px 0}
+  .wrap{padding:0 18px}
+  .svc-grid,.price-grid,.rev-grid,.gal,.team-grid{grid-template-columns:1fr}
+  .gal-item{height:200px!important;grid-column:span 1!important}
+  .stat-row{grid-template-columns:1fr}
+  .form-card{padding:26px 20px}
+  .hero-stats{gap:24px}
+  .hstat b{font-size:26px}
+  .plan.hot{transform:none}
+  .plan.hot:hover{transform:translateY(-8px)}
+  .foot-top{grid-template-columns:1fr}
+  .fab{right:16px;bottom:16px;width:58px;height:58px}
+  .hero{padding-top:120px}
+}
+</style>
+</head>
+<body>
+
+<!-- ФОНОВЫЕ СВЕЧЕНИЯ -->
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+<div class="grid-bg"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="nav">
+    <a href="#hero" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2.5C8.5 6 6 9.2 6 12.5a6 6 0 0 0 12 0c0-3.3-2.5-6.5-6-10z"/>
+          <path d="M12 21v-6"/>
+        </svg>
+      </div>
+      <div>
+        АкваЧист
+        <small>Ростов-на-Дону</small>
+      </div>
+    </a>
+
+    <nav class="menu" id="menu">
+      <a href="#services" class="active">Услуги</a>
+      <a href="#how">Как работаем</a>
+      <a href="#why">Почему мы</a>
+      <a href="#prices">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#gallery">Работы</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="tel:+79185545210" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>
+        </svg>
+        <span>8 918 554-52-10</span>
+      </a>
+      <a href="#contacts" class="btn btn-primary" style="padding:12px 22px;font-size:14px">Вызвать</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= 1. ГЕРОЙ ================= -->
+<section class="hero" id="hero">
+  <div class="bubbles" id="bubbles"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow reveal"><span class="dot"></span>Выезд по Ростову за 60 минут</div>
+        <h1 class="reveal">
+          <span class="line">Химчистка мебели</span>
+          <span class="line grad-txt">с эффектом новой</span>
+        </h1>
+        <p class="lead reveal">
+          Глубокая чистка диванов, кресел, матрасов и ковров прямо у вас дома.
+          Профессиональное немецкое оборудование, гипоаллергенные средства —
+          безопасно для детей и питомцев. Убираем пятна, запахи и пылевых клещей.
+        </p>
+        <div class="hero-btns reveal">
+          <a href="tel:+79185545210" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>
+            </svg>
+            8 918 554-52-10
+          </a>
+          <a href="#prices" class="btn btn-ghost btn-lg">Смотреть цены</a>
+        </div>
+        <div class="hero-stats reveal">
+          <div class="hstat"><b>12 400+</b><span>чисток выполнено</span></div>
+          <div class="hstat"><b>4.9</b><span>средняя оценка</span></div>
+          <div class="hstat"><b>7 лет</b><span>на рынке Ростова</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="sofa-card">
+          <div class="badge-live"><i></i>Чистим сейчас</div>
+          <svg class="sofa-svg" viewBox="0 0 320 180" fill="none">
+            <defs>
+              <linearGradient id="sofaG" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#00e5ff"/><stop offset="1" stop-color="#7b5cff"/>
+              </linearGradient>
+            </defs>
+            <rect x="20" y="70" width="280" height="62" rx="20" fill="url(#sofaG)" opacity=".22" stroke="url(#sofaG)" stroke-width="1.6"/>
+            <rect x="36" y="46" width="248" height="40" rx="16" fill="url(#sofaG)" opacity=".14" stroke="url(#sofaG)" stroke-width="1.4"/>
+            <rect x="8" y="82" width="34" height="52" rx="14" fill="url(#sofaG)" opacity=".28" stroke="url(#sofaG)" stroke-width="1.4"/>
+            <rect x="278" y="82" width="34" height="52" rx="14" fill="url(#sofaG)" opacity=".28" stroke="url(#sofaG)" stroke-width="1.4"/>
+            <circle cx="70" cy="132" r="4" fill="#00e5ff" opacity=".9"/>
+            <circle cx="250" cy="132" r="4" fill="#7b5cff" opacity=".9"/>
+            <path d="M60 70 Q110 40 160 70" stroke="#25f4c1" stroke-width="2.2" stroke-linecap="round" opacity=".85" fill="none"/>
+            <path d="M150 108 Q200 88 250 108" stroke="#00e5ff" stroke-width="2.2" stroke-linecap="round" opacity=".55" fill="none"/>
+            <circle cx="238" cy="46" r="7" fill="#25f4c1" opacity=".55"/>
+            <circle cx="262" cy="34" r="4.5" fill="#00e5ff" opacity=".45"/>
+            <circle cx="52" cy="38" r="5.5" fill="#7b5cff" opacity=".5"/>
+          </svg>
+          <div class="sofa-caption">Глубокая экстракция</div>
+          <div class="sofa-sub">Пылесос + пар + профессиональный шампунь</div>
+          <div class="progressbar"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- БЕГУЩАЯ СТРОКА -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Диваны<span></span></span><span>Матрасы</span><span>Кресла</span><span>Ковры</span><span>Стулья</span><span>Автосалон</span><span>Офисная мебель</span><span>Удаление запахов</span>
+  </div>
+  <div class="marquee-track" aria-hidden="true">
+    <span>Диваны</span><span>Матрасы</span><span>Кресла</span><span>Ковры</span><span>Стулья</span><span>Автосалон</span><span>Офисная мебель</span><span>Удаление запахов</span>
+  </div>
+</div>
+
+<!-- ================= 2. УСЛУГИ ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow"><span class="dot"></span>Наши услуги</div>
+      <h2 class="title">Что мы <span class="grad-txt">чистим</span></h2>
+      <p class="sub">Работаем с любыми типами тканей и наполнителей. Подбираем средство и метод очистки индивидуально под каждый предмет.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 17h16v-6a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v6z"/>
+            <path d="M4 17v2M20 17v2M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+          </svg>
+        </div>
+        <h3>Химчистка диванов</h3>
+        <p>Угловые, прямые, модульные. Убираем застарелые пятна, следы от кофе, вина, жира и детских «сюрпризов».</p>
+        <div class="price-from">от 2 500 ₽ <small>/ диван</small></div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="11" rx="3"/>
+            <path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/>
+            <path d="M6 14h12"/>
+          </svg>
+        </div>
+        <h3>Чистка матрасов</h3>
+        <p>Уничтожаем пылевых клещей, аллергены и биологические следы. Обработка с двух сторон с дезинфекцией.</p>
+        <div class="price-from">от 2 000 ₽ <small>/ матрас</small></div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 18v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5"/>
+            <path d="M6 10V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/>
+            <path d="M3 18h18"/>
+          </svg>
+        </div>
+        <h3>Кресла и стулья</h3>
+        <p>Офисные кресла, мягкие стулья, банкетки. Быстрая локальная чистка без разводов и разводов на ткани.</p>
+        <div class="price-from">от 700 ₽ <small>/ предмет</small></div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="3"/>
+            <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+          </svg>
+        </div>
+        <h3>Ковры и ковролин</h3>
+        <p>Ворсовые, безворсовые, шерстяные и синтетические. Глубокая выбивка пыли и чистящий шампунь.</p>
+        <div class="price-from">от 350 ₽ <small>/ м²</small></div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.5C8.5 6 6 9.2 6 12.5a6 6 0 0 0 12 0c0-3.3-2.5-6.5-6-10z"/>
+          </svg>
+        </div>
+        <h3>Удаление запахов</h3>
+        <p>Табак, животные, сырость, гарь. Озонирование и ферментная обработка — нейтрализуем причину, а не маскируем.</p>
+        <div class="price-from">от 1 200 ₽ <small>/ зона</small></div>
+      </div>
+
+      <div class="svc reveal">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l8 4v6c0 4.4-3.4 7.9-8 8.9-4.6-1-8-4.5-8-8.9V7l8-4z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3>Антибактериальная обработка</h3>
+        <p>Дезинфекция мягкой мебели после болезней и для семей с малышами. Средства без хлора и резкого запаха.</p>
+        <div class="price-from">от 1 500 ₽ <small>/ предмет</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. КАК РАБОТАЕМ ================= -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow"><span class="dot"></span>Процесс</div>
+      <h2 class="title">Как мы <span class="grad-txt">работаем</span></h2>
+      <p class="sub">От звонка до идеально чистой мебели — всего 4 простых шага. Вам не нужно ничего готовить и выносить.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h4>Звонок и заявка</h4>
+        <p>Принимаем звонок, уточняем тип мебели и загрязнений. Сразу называем точную стоимость.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h4>Выезд за 60 минут</h4>
+        <p>Мастер приезжает с оборудованием и водой. Работаем без выходных, с 8:00 до 22:00.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h4>Глубокая чистка</h4>
+        <p>Пылесос, пар, экстрактор, профессиональные средства. Всё поэтапно, с защитой пола и стен.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h4>Сушка и приёмка</h4>
+        <p>Мебель сохнет 3–5 часов. Принимаете работу — платите только если результат вас устроил.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. ПОЧЕМУ МЫ ================= -->
+<section id="why">
+  <div class="wrap">
+    <div class="adv-wrap">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>Почему выбирают нас</div>
+        <h2 class="title">Сервис уровня<br><span class="grad-txt">премиум</span></h2>
+        <p class="sub" style="margin-bottom:38px">Мы не просто чистим — мы возвращаем мебели вид и свежесть, а вам — комфорт и здоровый микроклимат дома.</p>
+
+        <div class="adv-list">
+          <div class="adv">
+            <div class="adv-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.6-8 10-4.5-1.4-8-5-8-10V6l8-4z"/></svg>
+            </div>
+            <div>
+              <h4>Безопасно для детей и животных</h4>
+              <p>Сертифицированные средства с pH-нейтральным составом. Никакого хлора и агрессивной химии.</p>
+            </div>
+          </div>
+
+          <div class="adv">
+            <div class="adv-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <div>
+              <h4>Приезжаем за 60 минут</h4>
+              <p>Свой автопарк и мастера во всех районах Ростова. Не заставляем ждать «в течение дня».</p>
+            </div>
+          </div>
+
+          <div class="adv">
+            <div class="adv-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <h4>Оплата после результата</h4>
+              <p>Сначала показываем чистый участок — вы убеждаетесь в качестве и только потом платите.</p>
+            </div>
+          </div>
+
+          <div class="adv">
+            <div class="adv-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div>
+              <h4>Фиксированная цена</h4>
+              <p>Называем стоимость по телефону и не меняем её на месте. Никаких доплат «за сложность».</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adv-visual reveal">
+        <h3>Цифры, которые говорят сами</h3>
+        <div class="stat-row">
+          <div class="stat-box"><b>60 мин</b><span>среднее время до выезда мастера</span></div>
+          <div class="stat-box"><b>98%</b><span>пятен удаляем с первого раза</span></div>
+        </div>
+        <div class="stat-row" style="margin-bottom:0">
+          <div class="stat-box"><b>3–5 ч</b><span>полная сушка мебели</span></div>
+          <div class="stat-box"><b>0 ₽</b><span>выезд и диагностика по городу</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. ЦЕНЫ ================= -->
+<section id="prices">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow"><span class="dot"></span>Прайс</div>
+      <h2 class="title">Прозрачные <span class="grad-txt">цены</span></h2>
+      <p class="sub">Выезд по Ростову-на-Дону — бесплатно. Итоговую стоимость называем по телефону до начала работ.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="plan reveal">
+        <h3>Базовая</h3>
+        <p class="desc">Для регулярного ухода и лёгких загрязнений</p>
+        <div class="amt">2 500 <small>₽</small></div>
+        <div class="per">за диван (2–3 места)</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Сухая выбивка пыли</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Чистка экстрактором</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Удаление лёгких пятен</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Антибактериальная обработка</li>
+        </ul>
+        <a href="tel:+79185545210" class="btn btn-ghost">Заказать</a>
+      </div>
+
+      <div class="plan hot reveal">
+        <div class="plan-tag">Хит выбора</div>
+        <h3>Глубокая</h3>
+        <p class="desc">Оптимально для сильных и застарелых загрязнений</p>
+        <div class="amt">3 900 <small>₽</small></div>
+        <div class="per">за диван (2–3 места)</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Всё из «Базовой»</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Паровая обработка 120°C</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Удаление сложных пятен</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Нейтрализация запахов</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Защитная пропитка ткани</li>
+        </ul>
+        <a href="tel:+79185545210" class="btn btn-primary">Заказать</a>
+      </div>
+
+      <div class="plan reveal">
+        <h3>Премиум</h3>
+        <p class="desc">Максимальный результат и защита на месяцы</p>
+        <div class="amt">5 400 <small>₽</small></div>
+        <div class="per">за диван (2–3 места)</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Всё из «Глубокой»</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Озонирование помещения</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Антиклещевая обработка</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Сушка турбо-феном</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Гарантия 30 дней</li>
+        </ul>
+        <a href="tel:+79185545210" class="btn btn-ghost">Заказать</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;color:var(--muted);font-size:14px;margin-top:34px">
+      Также чистим: матрас — от 2 000 ₽ · кресло — от 1 200 ₽ · стул — от 700 ₽ · ковёр — от 350 ₽/м²
+    </p>
+  </div>
+</section>
+
+<!-- ================= 6. ОТЗЫВЫ ================= -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow"><span class="dot"></span>Отзывы</div>
+      <h2 class="title">Что говорят <span class="grad-txt">клиенты</span></h2>
+      <p class="sub">Более 12 400 выполненных заказов и средняя оценка 4.9 из 5 по Ростову-на-Дону.</p>
+    </div>
+
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+        </div>
+        <p>«Диван был в ужасном состоянии после кота и двух детей. Мастер приехал через час, всё аккуратно накрыл, почистил. Запаха нет вообще, ткань как новая. Очень довольна!»</p>
+        <div class="rev-who">
+          <div class="avatar">А</div>
+          <div><b>Анна К.</b><span>ЖК «Донской», Ростов</span></div>
+        </div>
+      </div>
+
+      <div class="rev reveal">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+        </div>
+        <p>«Заказывал чистку матраса и углового дивана. Цену сказали сразу по телефону, на месте ничего не добавили. Работали быстро, час с небольшим. Результат отличный, рекомендую.»</p>
+        <div class="rev-who">
+          <div class="avatar">Д</div>
+          <div><b>Дмитрий В.</b><span>Западный, Ростов</span></div>
+        </div>
+      </div>
+
+      <div class="rev reveal">
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3 6.9 7.5.7-5.6 5 1.6 7.4L12 18l-6.5 3.9L7.1 14.5 1.5 9.6l7.5-.7L12 2z"/></svg>
+        </div>
+        <p>«Обратилась в офис — нужно было почистить 12 стульев и два дивана в переговорной. Сделали за один вечер, все довольны. Теперь сотрудничаем на постоянной основе.»</p>
+        <div class="rev-who">
+          <div class="avatar">Е</div>
+          <div><b>Елена С.</b><span>Бизнес-центр, Ростов</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. ГАЛЕРЕЯ ================= -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow"><span class="dot"></span>Наши работы</div>
+      <h2 class="title">До и <span class="grad-txt">после</span></h2>
+      <p class="sub">Реальные результаты чисток в квартирах и офисах Ростова-на-Дону.</p>
+    </div>
+
+    <div class="gal">
+      <div class="gal-item reveal">
+        <div class="fill"></div>
+        <div class="chip">Диван</div>
+        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5"><path d="M4 17h16v-6a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v6z"/><path d="M4 17v2M20 17v2"/></svg>
+        <div class="lbl">Угловой диван<small>Пятна от кофе · 90 мин</small></div>
+      </div>
+      <div class="gal-item reveal">
+        <div class="fill"></div>
+        <div class="chip">Матрас</div>
+        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#25f4c1" stroke-width="1.5"><rect x="2" y="7" width="20" height="11" rx="3"/></svg>
+        <div class="lbl">Матрас<small>Антиклещ · 60 мин</small></div>
+      </div>
+      <div class="gal-item reveal">
+        <div class="fill"></div>
+        <div class="chip">Ковёр</div>
+        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#7b5cff" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 3v18"/></svg>
+        <div class="lbl">Шерстяной ковёр<small>Глубокая выбивка · 80 мин</small></div>
+      </div>
+      <div class="gal-item reveal">
+        <div class="fill"></div>
+        <div class="chip">Кресло</div>
+        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#ffc93c" stroke-width="1.5"><path d="M3 18v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5"/></svg>
+        <div class="lbl">Офисное кресло<small>Жир · 40 мин</small></div>
+      </div>
+      <div class="gal-item reveal">
+        <div class="fill"></div>
+        <div class="chip">Запах</div>
+        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5"><path d="M12 2.5C8.5 6 6 9.2 6 12.5a6 6 0 0 0 12 0c0-3.3-2.5-6.5-6-10z"/></svg>
+        <div class="lbl">Нейтрализация запаха<small>Домашние питомцы · 70 мин</small></div>
+      </div>
+      <div class="gal-item reveal">
+        <div class="fill"></div>
+        <div class="chip">Комплекс</div>
+        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#25f4c1" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div class="lbl">Диван + 2 кресла + ковёр<small>Комплексная чистка · 3 часа</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow"><span class="dot"></span>Вопрос-ответ</div>
+      <h2 class="title">Частые <span class="grad-txt">вопросы</span></h2>
+      <p class="sub">Собрали то, что спрашивают чаще всего. Не нашли ответ — позвоните, всё расскажем.</p>
+    </div>
+
+    <div class="faq-wrap">
+      <div class="faq reveal">
+        <div class="faq-q">Сколько сохнет мебель после химчистки?<div class="plus"></div></div>
+        <div class="faq-a"><p>В среднем 3–5 часов. Точное время зависит от типа ткани, наполнителя и влажности в помещении. Мы используем профессиональный экстрактор, который вытягивает до 95% влаги, поэтому мебель сохнет значительно быстрее, чем после ручной чистки. При заказе тарифа «Премиум» применяем турбо-сушку — можно пользоваться мебелью уже через 1–2 часа.</p></div>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-q">Безопасны ли средства для детей и животных?<div class="plus"></div></div>
+        <div class="faq-a"><p>Да, абсолютно. Мы работаем только с сертифицированными средствами немецкого и итальянского производства с pH-нейтральным составом. Они не содержат хлора, фосфатов и агрессивных растворителей. После чистки не остаётся токсичных следов, а запах выветривается в течение часа. Состав безопасен для детей любого возраста и домашних питомцев.</p></div>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-q">Удалите ли вы застарелое пятно?<div class="plus"></div></div>
+        <div class="faq-a"><p>В 98% случаев — да. Мы используем комбинацию методов: паровую обработку, экстракцию и специальные пятновыводители под конкретный тип загрязнения (кофе, вино, жир, кровь, чернила, косметика). Если пятно не удаётся убрать полностью, мастер честно скажет об этом до начала работы и предложит альтернативные решения. Деньги за невыполненную услугу мы не берём.</p></div>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-q">Сколько времени занимает чистка дивана?<div class="plus"></div></div>
+        <div class="faq-a"><p>Стандартный двух-трёхместный диван — 60–90 минут. Угловой диван — 1,5–2 часа. Матрас — около часа. Ковёр — зависит от площади: примерно 15–20 минут на квадратный метр. Точное время мастер назовёт после осмотра.</p></div>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-q">Нужно ли что-то готовить перед приездом мастера?<div class="plus"></div></div>
+        <div class="faq-a"><p>Нет, ничего готовить не нужно. Мастер привозит всё оборудование и воду с собой, застелет пол и стены защитной плёнкой. Всё, что от вас требуется — обеспечить доступ к розетке и, по возможности, освободить мебель от подушек и пледов.</p></div>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-q">Выезжаете ли вы за пределы Ростова-на-Дону?<div class="plus"></div></div>
+        <div class="faq-a"><p>Да. Мы работаем по всему Ростову-на-Дону бесплатно, а также выезжаем в Батайск, Аксай, Азов, Таганрог и другие города области. Стоимость выезда за город рассчитывается индивидуально — уточните по телефону 8 918 554-52-10.</p></div>
+      </div>
+
+      <div class="faq reveal">
+        <div class="faq-q">Как оплатить и есть ли гарантия?<div class="plus"></div></div>
+        <div class="faq-a"><p>Оплата после выполнения работ — наличными или переводом. Никаких предоплат. На все услуги действует гарантия: 14 дней на базовые тарифы и 30 дней на «Премиум». Если в течение гарантийного срока пятно проявится снова — приедем и устраним бесплатно.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 9. О КОМПАНИИ ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span>О компании</div>
+        <h2 class="title">АкваЧист — <span class="grad-txt">7 лет</span> заботы о вашем доме</h2>
+        <p>Мы — ростовская команда мастеров, которая с 2018 года занимается профессиональной химчисткой мягкой мебели. Начинали с одной машины и двух мастеров, а сегодня это полноценная служба с собственным автопарком, складом профессиональной химии и штатом сертифицированных специалистов.</p>
+        <p>Мы принципиально не работаем «на потоке»: каждый заказ ведёт один мастер от начала до конца. Он же даёт гарантию и отвечает за результат. Именно поэтому 6 из 10 клиентов возвращаются к нам снова и рекомендуют друзьям.</p>
+        <p>Работаем без выходных, с 8:00 до 22:00. Приезжаем в любой район Ростова-на-Дону в течение часа после звонка.</p>
+
+        <div class="about-badges">
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Сертифицированные мастера</div>
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Немецкое оборудование</div>
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Без предоплаты</div>
+          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Работаем 7 дней в неделю</div>
+        </div>
+      </div>
+
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="team-av">И</div>
+          <b>Игорь</b>
+          <span>Ведущий мастер · 9 лет опыта</span>
+        </div>
+        <div class="team-card">
+          <div class="team-av">М</div>
+          <b>Марина</b>
+          <span>Технолог по тканям · 6 лет</span>
+        </div>
+        <div class="team-card">
+          <div class="team-av">С</div>
+          <b>Сергей</b>
+          <span>Мастер выезда · 7 лет опыта</span>
+        </div>
+        <div class="team-card">
+          <div class="team-av">О</div>
+          <b>Ольга</b>
+          <span>Координатор заказов</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10. КОНТАКТЫ ================= -->
+<section id="contacts">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <div class="eyebrow"><span class="dot"></span>Контакты</div>
+      <h2 class="title">Вызвать мастера <span class="grad-txt">сейчас</span></h2>
+      <p class="sub">Позвоните или оставьте заявку — перезвоним в течение 5 минут и назовём точную стоимость.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="cinfo">
+          <div class="cinfo-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          </div>
+          <div>
+            <small>Телефон · круглосуточно</small>
+            <b><a href="tel:+79185545210">8 918 554-52-10</a></b>
+            <em>Принимаем звонки с 8:00 до 22:00</em>
+          </div>
+        </div>
+
+        <div class="cinfo">
+          <div class="cinfo-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <small>Зона обслуживания</small>
+            <b>Ростов-на-Дону</b>
+            <em>+ Батайск, Аксай, Азов, Таганрог</em>
+          </div>
+        </div>
+
+        <div class="cinfo">
+          <div class="cinfo-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <div>
+            <small>Режим работы</small>
+            <b>Ежедневно 8:00 – 22:00</b>
+            <em>Без выходных и праздников</em>
+          </div>
+        </div>
+
+        <div class="cinfo">
+          <div class="cinfo-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 20V9"/></svg>
+          </div>
+          <div>
+            <small>Выезд мастера</small>
+            <b>Бесплатно</b>
+            <em>По всему Ростову-на-Дону</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <h3>Оставить заявку</h3>
+        <p>Заполните форму — перезвоним в течение 5 минут, уточним детали и назовём точную цену.</p>
+
+        <form id="leadForm">
+          <div class="field">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+          </div>
+          <div class="field">
+            <input type="tel" name="phone" placeholder="Телефон +7 (___) ___-__-__" required>
+          </div>
+          <div class="field">
+            <select name="service" required>
+              <option value="">Что нужно почистить?</option>
+              <option>Диван</option>
+              <option>Угловой диван</option>
+              <option>Матрас</option>
+              <option>Кресло / стулья</option>
+              <option>Ковёр / ковролин</option>
+              <option>Комплексная чистка</option>
+              <option>Удаление запаха</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="field">
+            <textarea name="comment" placeholder="Комментарий (район, удобное время, характер загрязнений)"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Отправить заявку
+          </button>
+          <div class="form-note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</div>
+          <div class="ok-msg" id="okMsg">✓ Заявка отправлена! Мы перезвоним в течение 5 минут.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ФУТЕР ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-about">
+        <a href="#hero" class="logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.5C8.5 6 6 9.2 6 12.5a6 6 0 0 0 12 0c0-3.3-2.5-6.5-6-10z"/>
+              <path d="M12 21v-6"/>
+            </svg>
+          </div>
+          <div>АкваЧист<small>Ростов-на-Дону</small></div>
+        </a>
+        <p>Профессиональная химчистка мягкой мебели на дому. Работаем с 2018 года, более 12 400 довольных клиентов.</p>
+        <a href="tel:+79185545210" class="foot-phone">8 918 554-52-10</a>
+        <span style="font-size:13px;color:var(--muted)">Ежедневно с 8:00 до 22:00</span>
+      </div>
+
+      <div>
+        <h4>Услуги</h4>
+        <ul>
+          <li><a href="#services">Химчистка диванов</a></li>
+          <li><a href="#services">Чистка матрасов</a></li>
+          <li><a href="#services">Кресла и стулья</a></li>
+          <li><a href="#services">Ковры и ковролин</a></li>
+          <li><a href="#services">Удаление запахов</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#how">Как работаем</a></li>
+          <li><a href="#prices">Цены</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+79185545210">8 918 554-52-10</a></li>
+          <li><a href="#contacts">Оставить заявку</a></li>
+          <li style="color:var(--muted);font-size:14.5px">г. Ростов-на-Дону</li>
+          <li style="color:var(--muted);font-size:14.5px">Выезд по городу — бесплатно</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2025 АкваЧист — химчистка мебели в Ростове-на-Дону. Все права защищены.</span>
+      <span>Информация на сайте не является публичной офертой.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ПЛАВАЮЩАЯ КНОПКА ЗВОНКА -->
+<a href="tel:+79185545210" class="fab" aria-label="Позвонить">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>
+  </svg>
+</a>
+
+<script>
+/* ============ ХЕДЕР ПРИ СКРОЛЛЕ ============ */
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+/* ============ МОБИЛЬНОЕ МЕНЮ ============ */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('on');
+  menu.classList.toggle('open');
+});
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  burger.classList.remove('on');
+  menu.classList.remove('open');
+}));
+
+/* ============ REVEAL-АНИМАЦИИ ============ */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      const delay = [...e.target.parentElement.children].indexOf(e.target) % 4;
+      setTimeout(() => e.target.classList.add('in'), delay * 90);
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.12, rootMargin: '0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ============ ПУЗЫРЬКИ В ГЕРОЕ ============ */
+const bubWrap = document.getElementById('bubbles');
+for (let i = 0; i < 26; i++) {
+  const b = document.createElement('div');
+  b.className = 'bub';
+  const size = 6 + Math.random() * 26;
+  b.style.width = size + 'px';
+  b.style.height = size + 'px';
+  b.style.left = Math.random() * 100 + '%';
+  b.style.bottom = '-60px';
+  b.style.animationDuration = (7 + Math.random() * 9) + 's';
+  b.style.animationDelay = (Math.random() * 10) + 's';
+  bubWrap.appendChild(b);
+}
+
+/* ============ SPOTLIGHT НА КАРТОЧКАХ УСЛУГ ============ */
+document.querySelectorAll('.svc').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+});
+
+/* ============ FAQ АККОРДЕОН ============ */
+document.querySelectorAll('.faq').forEach(faq => {
+  const q = faq.querySelector('.faq-q');
+  const a = faq.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const isOpen = faq.classList.contains('open');
+    document.querySelectorAll('.faq').forEach(f => {
+      f.classList.remove('open');
+      f.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen) {
+      faq.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ============ АКТИВНАЯ ССЫЛКА В МЕНЮ ============ */
+const sections = [...document.querySelectorAll('section[id]')];
+const navLinks = [...document.querySelectorAll('.menu a')];
+const navIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, {threshold: 0.35, rootMargin: '-80px 0px -50% 0px'});
+sections.forEach(s => navIO.observe(s));
+
+/* ============ ФОРМА ============ */
+const form = document.getElementById('leadForm');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const ok = document.getElementById('okMsg');
+  ok.style.display = 'block';
+  form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+  setTimeout(() => ok.style.display = 'none', 6000);
+});
+
+/* ============ МАСКА ТЕЛЕФОНА (упрощённая) ============ */
+const phoneInput = form.querySelector('input[type="tel"]');
+phoneInput.addEventListener('input', (e) => {
+  let v = e.target.value.replace(/\D/g, '');
+  if (v.startsWith('8')) v = '7' + v.slice(1);
+  if (!v.startsWith('7')) v = '7' + v;
+  v = v.slice(0, 11);
+  let out = '+7';
+  if (v.length > 1) out += ' (' + v.slice(1, 4);
+  if (v.length >= 4) out += ') ' + v.slice(4, 7);
+  if (v.length >= 7) out += '-' + v.slice(7, 9);
+  if (v.length >= 9) out += '-' + v.slice(9, 11);
+  e.target.value = out;
+});
+phoneInput.addEventListener('focus', (e) => {
+  if (!e.target.value) e.target.value = '+7 (';
+});
+</script>
+</body>
+</html>
