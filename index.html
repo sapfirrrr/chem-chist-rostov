@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>АкваЧист — Химчистка мебели в Ростове-на-Дону | Выезд за 60 минут</title>
+<title>TerCleaN — Химчистка мебели в Ростове-на-Дону | Выезд за 60 минут</title>
 <meta name="description" content="Профессиональная химчистка мебели на дому в Ростове-на-Дону. Диваны, кресла, матрасы, ковры. Немецкое оборудование, безопасные средства. Выезд за 60 минут. ☎ 8 918 554-52-10">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,28 +62,25 @@ button,input,textarea,select{font-family:inherit}
 
 /* ============ НАВИГАЦИЯ ============ */
 header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
+  position:fixed;top:0;left:0;right:0;z-index:1000;
   transition:.4s cubic-bezier(.4,0,.2,1);
   padding:18px 0;
 }
 header.scrolled{
   padding:10px 0;
-  background:rgba(5,8,15,.78);
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
+  background:rgba(5,8,15,.92);
   border-bottom:1px solid var(--stroke);
 }
 .nav{
   max-width:1280px;margin:0 auto;padding:0 24px;
   display:flex;align-items:center;justify-content:space-between;gap:24px;
 }
-.logo{display:flex;align-items:center;gap:12px;font-family:'Unbounded';font-weight:800;font-size:19px;letter-spacing:-.03em}
-.logo-mark{
-  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
-  background:var(--grad);box-shadow:0 8px 30px rgba(0,229,255,.45);
-  position:relative;flex-shrink:0;
+.logo{display:flex;align-items:center;gap:14px;font-family:'Unbounded';font-weight:800;font-size:20px;letter-spacing:-.03em}
+.logo-img{
+  width:54px;height:54px;border-radius:50%;object-fit:cover;flex-shrink:0;
+  box-shadow:0 0 0 2px rgba(0,229,255,.35),0 8px 30px rgba(0,229,255,.4);
+  background:#0c1526;
 }
-.logo-mark svg{width:24px;height:24px}
 .logo small{display:block;font-family:'Manrope';font-weight:500;font-size:10.5px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-top:1px}
 
 .menu{display:flex;gap:6px;align-items:center}
@@ -122,7 +119,7 @@ header.scrolled{
 .btn-lg{padding:18px 36px;font-size:16.5px;border-radius:16px}
 
 .burger{display:none;width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.05);
-  box-shadow:inset 0 0 0 1px var(--stroke);border:none;cursor:pointer;position:relative}
+  box-shadow:inset 0 0 0 1px var(--stroke);border:none;cursor:pointer;position:relative;z-index:10000}
 .burger span{position:absolute;left:13px;width:20px;height:2px;background:#fff;border-radius:2px;transition:.3s}
 .burger span:nth-child(1){top:16px}
 .burger span:nth-child(2){top:22px}
@@ -341,41 +338,62 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 .rev-who b{display:block;font-size:15px;font-weight:700}
 .rev-who span{font-size:12.5px;color:var(--muted)}
 
-/* ============ ГАЛЕРЕЯ ============ */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.gal-item{
-  position:relative;border-radius:22px;overflow:hidden;height:230px;
-  box-shadow:inset 0 0 0 1px var(--stroke);transition:.5s;cursor:pointer;
+/* ============ ГАЛЕРЕЯ (Before/After Slider) ============ */
+.gal { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.gal-item {
+  position: relative; border-radius: 22px; overflow: hidden; height: 340px;
+  box-shadow: inset 0 0 0 1px var(--stroke); transition: .5s; cursor: pointer;
+  background: #0c1526;
 }
-.gal-item:nth-child(1){grid-column:span 2;height:300px}
-.gal-item:nth-child(6){grid-column:span 2;height:300px}
-.gal-item .fill{
-  position:absolute;inset:0;transition:.6s;
-  background:linear-gradient(140deg,#0c1526,#132038);
+.ba-slider {
+  position: relative; width: 100%; height: 100%; cursor: ew-resize; overflow: hidden;
 }
-.gal-item:nth-child(1) .fill{background:linear-gradient(140deg,#0a2b3a,#123a52)}
-.gal-item:nth-child(2) .fill{background:linear-gradient(140deg,#1b1030,#2d1a52)}
-.gal-item:nth-child(3) .fill{background:linear-gradient(140deg,#0d2b25,#14453a)}
-.gal-item:nth-child(4) .fill{background:linear-gradient(140deg,#2a1a0c,#4a2f12)}
-.gal-item:nth-child(5) .fill{background:linear-gradient(140deg,#0c1a30,#152a4c)}
-.gal-item:nth-child(6) .fill{background:linear-gradient(140deg,#25102a,#3d1a44)}
-.gal-item::after{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.13),transparent 55%);
+.ba-img {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
+  pointer-events: none; transition: transform .1s;
 }
-.gal-item:hover .fill{transform:scale(1.09)}
-.gal-item .lbl{
-  position:absolute;left:22px;bottom:20px;z-index:3;
-  font-family:'Unbounded';font-weight:600;font-size:16px;
+.ba-after {
+  clip-path: inset(0 0 0 50%);
+  transition: clip-path .1s ease-out;
+  z-index: 2;
 }
-.gal-item .lbl small{display:block;font-family:'Manrope';font-weight:500;font-size:12.5px;color:var(--aqua);margin-top:3px;letter-spacing:.06em}
-.gal-item .chip{
-  position:absolute;top:16px;left:16px;z-index:3;padding:6px 13px;border-radius:100px;
-  font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
-  background:rgba(37,244,193,.16);color:var(--aqua);backdrop-filter:blur(8px);
-  box-shadow:inset 0 0 0 1px rgba(37,244,193,.3);
+.ba-range {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0; z-index: 10; cursor: ew-resize; -webkit-appearance: none;
 }
-.gal-item svg.decor{position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:170px;opacity:.13;z-index:2}
+.ba-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px; height: 100%;
+}
+
+.gal-item .lbl {
+  position: absolute; left: 22px; bottom: 20px; z-index: 5;
+  font-family: 'Unbounded'; font-weight: 600; font-size: 16px;
+  background: linear-gradient(to top, rgba(5,8,15,.95), rgba(5,8,15,.5) 80%, transparent);
+  padding: 12px 20px; border-radius: 12px; pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+.gal-item .lbl small { display: block; font-family: 'Manrope'; font-weight: 500; font-size: 12.5px; color: var(--aqua); margin-top: 3px; letter-spacing: .06em; }
+
+.gal-label-before, .gal-label-after {
+  position: absolute; top: 15px; padding: 6px 12px; border-radius: 8px;
+  font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  backdrop-filter: blur(8px); z-index: 5; pointer-events: none;
+}
+.gal-label-before { left: 15px; background: rgba(255, 77, 148, .85); color: #fff; }
+.gal-label-after { right: 15px; background: rgba(37, 244, 193, .85); color: #04121a; }
+
+@media(min-width: 1024px) {
+  .gal { grid-template-columns: repeat(3, 1fr); }
+  .gal-item:nth-child(1) { grid-column: span 2; }
+  .gal-item:nth-child(2) { grid-column: span 1; }
+  .gal-item:nth-child(3) { grid-column: span 1; }
+  .gal-item:nth-child(4) { grid-column: span 2; }
+  .gal-item:nth-child(5) { grid-column: span 1; }
+  .gal-item:nth-child(6) { grid-column: span 1; }
+  .gal-item:nth-child(7) { grid-column: span 3; }
+}
 
 /* ============ FAQ ============ */
 .faq-wrap{max-width:880px;margin:0 auto}
@@ -507,30 +525,89 @@ footer{
 
 /* ============ АДАПТИВ ============ */
 @media(max-width:1080px){
-  .menu{display:none}
-  .burger{display:block}
-  .menu.open{
-    display:flex;flex-direction:column;position:fixed;top:76px;left:16px;right:16px;
-    background:rgba(8,13,26,.97);backdrop-filter:blur(24px);
-    border-radius:22px;padding:18px;gap:4px;
-    box-shadow:inset 0 0 0 1px var(--stroke),0 30px 70px rgba(0,0,0,.7);
+  /* Скрываем телефон на мобильной шапке */
+  .nav-phone{display:none !important}
+  
+  /* Всегда даём шапке фон на мобильных для гармоничного вида меню */
+  header{
+    background:rgba(5,8,15,.85);
+    border-bottom:1px solid var(--stroke);
   }
-  .menu.open a{padding:15px 18px;font-size:16px;width:100%}
+  header.scrolled{
+    background:rgba(5,8,15,.95);
+  }
+  
+  /* Бургер появляется */
+  .burger{display:block}
+  
+  /* Кнопка "Вызвать" — компактнее на мобиле */
+  .nav-right .btn{padding:10px 18px;font-size:13px}
+  
+  /* Выпадающее меню из-под шапки */
+  .menu{
+    position:absolute;
+    top:calc(100% + 8px); /* Вылезает прямо под шапкой */
+    left:16px;
+    right:16px;
+    background:rgba(8,13,26,.97);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    border-radius:22px;
+    padding:14px;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.10), 0 30px 70px rgba(0,0,0,.75);
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    z-index:9999;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-16px) scale(.97);
+    transform-origin:top center;
+    transition:opacity .3s cubic-bezier(.4,0,.2,1), transform .3s cubic-bezier(.4,0,.2,1), visibility .3s;
+    max-height:calc(100vh - 140px);
+    overflow-y:auto;
+    pointer-events:none;
+  }
+  .menu.open{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+  .menu a{
+    padding:14px 18px;
+    font-size:15px;
+    width:100%;
+    text-align:left;
+    border-radius:12px;
+    background:transparent;
+    color:var(--muted);
+    font-weight:600;
+    transition:.25s;
+  }
+  .menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
+  .menu a.active{
+    color:#fff;
+    background:rgba(0,229,255,.12);
+    box-shadow:inset 0 0 0 1px rgba(0,229,255,.25);
+  }
+  
   .hero-grid,.adv-wrap,.about-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
   .hero-visual{height:auto;order:-1}
   .svc-grid,.price-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr);gap:36px 20px}
   .steps::before{display:none}
   .gal{grid-template-columns:repeat(2,1fr)}
-  .gal-item:nth-child(1),.gal-item:nth-child(6){grid-column:span 2}
+  .gal-item:nth-child(1),.gal-item:nth-child(4),.gal-item:nth-child(7){grid-column:span 2}
   .foot-top{grid-template-columns:1fr 1fr}
-  .nav-phone span{display:none}
 }
 @media(max-width:680px){
   section{padding:76px 0}
   .wrap{padding:0 18px}
-  .svc-grid,.price-grid,.rev-grid,.gal,.team-grid{grid-template-columns:1fr}
-  .gal-item{height:200px!important;grid-column:span 1!important}
+  .svc-grid,.price-grid,.rev-grid,.team-grid{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr}
+  .gal-item{height:280px!important}
+  .gal-item:nth-child(1),.gal-item:nth-child(4),.gal-item:nth-child(7){grid-column:span 1!important}
   .stat-row{grid-template-columns:1fr}
   .form-card{padding:26px 20px}
   .hero-stats{gap:24px}
@@ -540,6 +617,11 @@ footer{
   .foot-top{grid-template-columns:1fr}
   .fab{right:16px;bottom:16px;width:58px;height:58px}
   .hero{padding-top:120px}
+  .logo-img{width:46px;height:46px}
+  .logo{font-size:17px;gap:10px}
+  .nav-right .btn{padding:9px 14px;font-size:12px}
+  .nav{padding:0 16px;gap:12px}
+  .menu{left:12px;right:12px}
 }
 </style>
 </head>
@@ -555,14 +637,9 @@ footer{
 <header id="header">
   <div class="nav">
     <a href="#hero" class="logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2.5C8.5 6 6 9.2 6 12.5a6 6 0 0 0 12 0c0-3.3-2.5-6.5-6-10z"/>
-          <path d="M12 21v-6"/>
-        </svg>
-      </div>
+      <img src="img/logo.jpg" alt="TerCleaN" class="logo-img" onerror="this.src='https://via.placeholder.com/54/00e5ff/04121a?text=T'">
       <div>
-        АкваЧист
+        TerCleaN
         <small>Ростов-на-Дону</small>
       </div>
     </a>
@@ -585,7 +662,7 @@ footer{
         </svg>
         <span>8 918 554-52-10</span>
       </a>
-      <a href="#contacts" class="btn btn-primary" style="padding:12px 22px;font-size:14px">Вызвать</a>
+      <a href="#contacts" class="btn btn-primary">Вызвать</a>
       <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -970,51 +1047,98 @@ footer{
   </div>
 </section>
 
-<!-- ================= 7. ГАЛЕРЕЯ ================= -->
+<!-- ================= 7. ГАЛЕРЕЯ (Before/After) ================= -->
 <section id="gallery">
   <div class="wrap">
     <div class="sec-head center reveal">
       <div class="eyebrow"><span class="dot"></span>Наши работы</div>
       <h2 class="title">До и <span class="grad-txt">после</span></h2>
-      <p class="sub">Реальные результаты чисток в квартирах и офисах Ростова-на-Дону.</p>
+      <p class="sub">Реальные результаты чисток в квартирах и офисах Ростова-на-Дону. Потяните ползунок, чтобы увидеть разницу.</p>
     </div>
 
     <div class="gal">
+      <!-- Item 1: div-1.1 (Before), div-1.3 (After) -->
       <div class="gal-item reveal">
-        <div class="fill"></div>
-        <div class="chip">Диван</div>
-        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5"><path d="M4 17h16v-6a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v6z"/><path d="M4 17v2M20 17v2"/></svg>
+        <div class="ba-slider">
+          <img src="img/div-1.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-1.1'">
+          <img src="img/div-1.3.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-1.3'">
+          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
+          <span class="gal-label-before">До</span>
+          <span class="gal-label-after">После</span>
+        </div>
         <div class="lbl">Угловой диван<small>Пятна от кофе · 90 мин</small></div>
       </div>
+
+      <!-- Item 2: div-1.2 (Before), div-1.4 (After) -->
       <div class="gal-item reveal">
-        <div class="fill"></div>
-        <div class="chip">Матрас</div>
-        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#25f4c1" stroke-width="1.5"><rect x="2" y="7" width="20" height="11" rx="3"/></svg>
-        <div class="lbl">Матрас<small>Антиклещ · 60 мин</small></div>
+        <div class="ba-slider">
+          <img src="img/div-1.2.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-1.2'">
+          <img src="img/div-1.4.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-1.4'">
+          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
+          <span class="gal-label-before">До</span>
+          <span class="gal-label-after">После</span>
+        </div>
+        <div class="lbl">Диван<small>Антиклещ · 60 мин</small></div>
       </div>
+
+      <!-- Item 3: div-2.1 (Before), div-2.2 (After) -->
       <div class="gal-item reveal">
-        <div class="fill"></div>
-        <div class="chip">Ковёр</div>
-        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#7b5cff" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 3v18"/></svg>
-        <div class="lbl">Шерстяной ковёр<small>Глубокая выбивка · 80 мин</small></div>
+        <div class="ba-slider">
+          <img src="img/div-2.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-2.1'">
+          <img src="img/div-2.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-2.2'">
+          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
+          <span class="gal-label-before">До</span>
+          <span class="gal-label-after">После</span>
+        </div>
+        <div class="lbl">Индивид. кресло<small>Глубокая выбивка · 80 мин</small></div>
       </div>
+
+      <!-- Item 4: div-3.1 (Before), div-3.2 (After) -->
       <div class="gal-item reveal">
-        <div class="fill"></div>
-        <div class="chip">Кресло</div>
-        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#ffc93c" stroke-width="1.5"><path d="M3 18v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5"/></svg>
+        <div class="ba-slider">
+          <img src="img/div-3.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-3.1'">
+          <img src="img/div-3.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-3.2'">
+          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
+          <span class="gal-label-before">До</span>
+          <span class="gal-label-after">После</span>
+        </div>
         <div class="lbl">Офисное кресло<small>Жир · 40 мин</small></div>
       </div>
+
+      <!-- Item 5: div-4.1 (Before), div-4.2 (After) -->
       <div class="gal-item reveal">
-        <div class="fill"></div>
-        <div class="chip">Запах</div>
-        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5"><path d="M12 2.5C8.5 6 6 9.2 6 12.5a6 6 0 0 0 12 0c0-3.3-2.5-6.5-6-10z"/></svg>
+        <div class="ba-slider">
+          <img src="img/div-4.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-4.1'">
+          <img src="img/div-4.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-4.2'">
+          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
+          <span class="gal-label-before">До</span>
+          <span class="gal-label-after">После</span>
+        </div>
         <div class="lbl">Нейтрализация запаха<small>Домашние питомцы · 70 мин</small></div>
       </div>
+
+      <!-- Item 6: div-5.1 (Before), div-5.2 (After) -->
       <div class="gal-item reveal">
-        <div class="fill"></div>
-        <div class="chip">Комплекс</div>
-        <svg class="decor" viewBox="0 0 24 24" fill="none" stroke="#25f4c1" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <div class="lbl">Диван + 2 кресла + ковёр<small>Комплексная чистка · 3 часа</small></div>
+        <div class="ba-slider">
+          <img src="img/div-5.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-5.1'">
+          <img src="img/div-5.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-5.2'">
+          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
+          <span class="gal-label-before">До</span>
+          <span class="gal-label-after">После</span>
+        </div>
+        <div class="lbl">Комплексная чистка<small>Диван + 2 кресла + ковёр · 3 часа</small></div>
+      </div>
+
+      <!-- Item 7: div-6.1 (Before), div-6.2 (After) -->
+      <div class="gal-item reveal">
+        <div class="ba-slider">
+          <img src="img/div-6.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-6.1'">
+          <img src="img/div-6.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-6.2'">
+          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
+          <span class="gal-label-before">До</span>
+          <span class="gal-label-after">После</span>
+        </div>
+        <div class="lbl">Диван после ремонта<small>Строительная пыль · 120 мин</small></div>
       </div>
     </div>
   </div>
@@ -1074,7 +1198,7 @@ footer{
     <div class="about-grid">
       <div class="reveal">
         <div class="eyebrow"><span class="dot"></span>О компании</div>
-        <h2 class="title">АкваЧист — <span class="grad-txt">7 лет</span> заботы о вашем доме</h2>
+        <h2 class="title">TerCleaN — <span class="grad-txt">7 лет</span> заботы о вашем доме</h2>
         <p>Мы — ростовская команда мастеров, которая с 2018 года занимается профессиональной химчисткой мягкой мебели. Начинали с одной машины и двух мастеров, а сегодня это полноценная служба с собственным автопарком, складом профессиональной химии и штатом сертифицированных специалистов.</p>
         <p>Мы принципиально не работаем «на потоке»: каждый заказ ведёт один мастер от начала до конца. Он же даёт гарантию и отвечает за результат. Именно поэтому 6 из 10 клиентов возвращаются к нам снова и рекомендуют друзьям.</p>
         <p>Работаем без выходных, с 8:00 до 22:00. Приезжаем в любой район Ростова-на-Дону в течение часа после звонка.</p>
@@ -1214,13 +1338,8 @@ footer{
     <div class="foot-top">
       <div class="foot-about">
         <a href="#hero" class="logo">
-          <div class="logo-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2.5C8.5 6 6 9.2 6 12.5a6 6 0 0 0 12 0c0-3.3-2.5-6.5-6-10z"/>
-              <path d="M12 21v-6"/>
-            </svg>
-          </div>
-          <div>АкваЧист<small>Ростов-на-Дону</small></div>
+          <img src="img/logo.jpg" alt="TerCleaN" class="logo-img" onerror="this.src='https://via.placeholder.com/54/00e5ff/04121a?text=T'">
+          <div>TerCleaN<small>Ростов-на-Дону</small></div>
         </a>
         <p>Профессиональная химчистка мягкой мебели на дому. Работаем с 2018 года, более 12 400 довольных клиентов.</p>
         <a href="tel:+79185545210" class="foot-phone">8 918 554-52-10</a>
@@ -1261,7 +1380,7 @@ footer{
     </div>
 
     <div class="foot-bottom">
-      <span>© 2025 АкваЧист — химчистка мебели в Ростове-на-Дону. Все права защищены. Сайт сделан tg: @MrGem4ik. </span>
+      <span>© 2025 TerCleaN — химчистка мебели в Ростове-на-Дону. Все права защищены.</span>
       <span>Информация на сайте не является публичной офертой.</span>
     </div>
   </div>
@@ -1284,14 +1403,36 @@ onScroll();
 /* ============ МОБИЛЬНОЕ МЕНЮ ============ */
 const burger = document.getElementById('burger');
 const menu = document.getElementById('menu');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('on');
-  menu.classList.toggle('open');
-});
-menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+
+function closeMenu(){
   burger.classList.remove('on');
   menu.classList.remove('open');
-}));
+}
+
+burger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    closeMenu();
+  } else {
+    burger.classList.add('on');
+    menu.classList.add('open');
+  }
+});
+
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+/* Закрытие по клику вне меню */
+document.addEventListener('click', (e) => {
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !burger.contains(e.target)) {
+    closeMenu();
+  }
+});
+
+/* Закрытие по клавише Escape */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu();
+});
 
 /* ============ REVEAL-АНИМАЦИИ ============ */
 const io = new IntersectionObserver((entries) => {
@@ -1358,33 +1499,53 @@ const navIO = new IntersectionObserver((entries) => {
 }, {threshold: 0.35, rootMargin: '-80px 0px -50% 0px'});
 sections.forEach(s => navIO.observe(s));
 
-/* ============ ФОРМА ============ */
-const form = document.getElementById('leadForm');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const ok = document.getElementById('okMsg');
-  ok.style.display = 'block';
-  form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
-  setTimeout(() => ok.style.display = 'none', 6000);
+/* ============ СЛАЙДЕР ДО/ПОСЛЕ ============ */
+document.querySelectorAll('.ba-slider').forEach(slider => {
+  const range = slider.querySelector('.ba-range');
+  const afterImg = slider.querySelector('.ba-after');
+  
+  if (range && afterImg) {
+    afterImg.style.clipPath = `inset(0 0 0 ${range.value}%)`;
+    range.addEventListener('input', (e) => {
+      const value = e.target.value;
+      afterImg.style.clipPath = `inset(0 0 0 ${value}%)`;
+    });
+  }
 });
 
-/* ============ МАСКА ТЕЛЕФОНА (упрощённая) ============ */
-const phoneInput = form.querySelector('input[type="tel"]');
-phoneInput.addEventListener('input', (e) => {
-  let v = e.target.value.replace(/\D/g, '');
-  if (v.startsWith('8')) v = '7' + v.slice(1);
-  if (!v.startsWith('7')) v = '7' + v;
-  v = v.slice(0, 11);
-  let out = '+7';
-  if (v.length > 1) out += ' (' + v.slice(1, 4);
-  if (v.length >= 4) out += ') ' + v.slice(4, 7);
-  if (v.length >= 7) out += '-' + v.slice(7, 9);
-  if (v.length >= 9) out += '-' + v.slice(9, 11);
-  e.target.value = out;
-});
-phoneInput.addEventListener('focus', (e) => {
-  if (!e.target.value) e.target.value = '+7 (';
-});
+/* ============ ФОРМА ============ */
+const form = document.getElementById('leadForm');
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const ok = document.getElementById('okMsg');
+    if (ok) {
+      ok.style.display = 'block';
+      form.querySelectorAll('input, select, textarea').forEach(el => el.value = '');
+      setTimeout(() => ok.style.display = 'none', 6000);
+    }
+  });
+
+  /* ============ МАСКА ТЕЛЕФОНА (упрощённая) ============ */
+  const phoneInput = form.querySelector('input[type="tel"]');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.startsWith('8')) v = '7' + v.slice(1);
+      if (!v.startsWith('7')) v = '7' + v;
+      v = v.slice(0, 11);
+      let out = '+7';
+      if (v.length > 1) out += ' (' + v.slice(1, 4);
+      if (v.length >= 4) out += ') ' + v.slice(4, 7);
+      if (v.length >= 7) out += '-' + v.slice(7, 9);
+      if (v.length >= 9) out += '-' + v.slice(9, 11);
+      e.target.value = out;
+    });
+    phoneInput.addEventListener('focus', (e) => {
+      if (!e.target.value) e.target.value = '+7 (';
+    });
+  }
+}
 </script>
 </body>
 </html>
