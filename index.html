@@ -20,13 +20,14 @@
   --stroke:rgba(255,255,255,.10);
   --txt:#eaf2ff;
   --muted:#8fa3c0;
-  --cyan:#00e5ff;
-  --aqua:#25f4c1;
-  --violet:#7b5cff;
+  /* === Палитра логотипа: яркий голубой + лаймовый зелёный === */
+  --cyan:#00c8ff;
+  --aqua:#7fff00;
+  --accent-dark:#0099dd;
   --pink:#ff4d94;
   --gold:#ffc93c;
-  --grad:linear-gradient(120deg,#00e5ff 0%,#25f4c1 45%,#7b5cff 100%);
-  --grad2:linear-gradient(135deg,#7b5cff,#00e5ff);
+  --grad:linear-gradient(120deg,#00c8ff 0%,#7fff00 100%);
+  --grad2:linear-gradient(135deg,#7fff00,#00c8ff);
 }
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
@@ -45,9 +46,9 @@ button,input,textarea,select{font-family:inherit}
 
 /* фон-свечения */
 .orb{position:fixed;border-radius:50%;filter:blur(120px);opacity:.5;pointer-events:none;z-index:0}
-.orb.o1{width:620px;height:620px;background:#00e5ff;top:-260px;left:-200px;animation:float1 18s ease-in-out infinite}
-.orb.o2{width:560px;height:560px;background:#7b5cff;top:35%;right:-240px;animation:float2 22s ease-in-out infinite}
-.orb.o3{width:520px;height:520px;background:#25f4c1;bottom:-200px;left:20%;opacity:.28;animation:float1 26s ease-in-out infinite}
+.orb.o1{width:620px;height:620px;background:#00c8ff;top:-260px;left:-200px;animation:float1 18s ease-in-out infinite}
+.orb.o2{width:560px;height:560px;background:#7fff00;top:35%;right:-240px;animation:float2 22s ease-in-out infinite}
+.orb.o3{width:520px;height:520px;background:#00c8ff;bottom:-200px;left:20%;opacity:.28;animation:float1 26s ease-in-out infinite}
 @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,60px)}}
 @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,80px)}}
 
@@ -78,8 +79,8 @@ header.scrolled{
 .logo{display:flex;align-items:center;gap:12px;font-family:'Unbounded';font-weight:800;font-size:19px;letter-spacing:-.03em;flex-shrink:0}
 .logo-img{
   width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0;
-  box-shadow:0 0 0 2px rgba(0,229,255,.35),0 8px 30px rgba(0,229,255,.4);
-  background:#0c1526;
+  box-shadow:0 0 0 2px rgba(0,200,255,.45),0 8px 30px rgba(0,200,255,.45);
+  background:#fff;
 }
 .logo small{display:block;font-family:'Manrope';font-weight:500;font-size:10px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase;margin-top:1px}
 
@@ -89,7 +90,7 @@ header.scrolled{
   transition:.25s;position:relative;white-space:nowrap;
 }
 .menu a:hover{color:#fff;background:rgba(255,255,255,.06)}
-.menu a.active{color:#fff;background:rgba(0,229,255,.12);box-shadow:inset 0 0 0 1px rgba(0,229,255,.25)}
+.menu a.active{color:#fff;background:rgba(0,200,255,.14);box-shadow:inset 0 0 0 1px rgba(0,200,255,.3)}
 
 .nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .nav-phone{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;white-space:nowrap}
@@ -103,9 +104,9 @@ header.scrolled{
 .btn svg{width:18px;height:18px}
 .btn-primary{
   background:var(--grad);color:#03121a;
-  box-shadow:0 10px 34px rgba(0,229,255,.38);
+  box-shadow:0 10px 34px rgba(0,200,255,.45);
 }
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 46px rgba(0,229,255,.55)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 46px rgba(127,255,0,.55)}
 .btn-primary::after{
   content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);
   transform:translateX(-120%);transition:.7s;
@@ -115,7 +116,7 @@ header.scrolled{
   background:rgba(255,255,255,.05);color:#fff;
   box-shadow:inset 0 0 0 1px var(--stroke);backdrop-filter:blur(10px);
 }
-.btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgba(0,229,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgba(127,255,0,.5)}
 .btn-lg{padding:18px 36px;font-size:16.5px;border-radius:16px}
 
 .burger{display:none;width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.05);
@@ -135,7 +136,7 @@ section{position:relative;z-index:2;padding:110px 0}
   display:inline-flex;align-items:center;gap:9px;
   padding:8px 16px;border-radius:100px;font-size:12.5px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;color:var(--aqua);
-  background:rgba(37,244,193,.08);box-shadow:inset 0 0 0 1px rgba(37,244,193,.25);
+  background:rgba(127,255,0,.08);box-shadow:inset 0 0 0 1px rgba(127,255,0,.3);
   margin-bottom:22px;
 }
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua);animation:pulse 2s infinite}
@@ -177,7 +178,7 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 .sofa-card .badge-live{
   position:absolute;top:20px;right:20px;display:flex;align-items:center;gap:7px;
   padding:7px 13px;border-radius:100px;font-size:11.5px;font-weight:700;
-  background:rgba(37,244,193,.14);color:var(--aqua);box-shadow:inset 0 0 0 1px rgba(37,244,193,.3);
+  background:rgba(127,255,0,.14);color:var(--aqua);box-shadow:inset 0 0 0 1px rgba(127,255,0,.35);
 }
 .sofa-card .badge-live i{width:7px;height:7px;border-radius:50%;background:var(--aqua);animation:pulse 1.6s infinite;display:block}
 
@@ -186,13 +187,13 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 .sofa-sub{font-size:13.5px;color:var(--muted);margin-bottom:20px}
 .progressbar{height:8px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden}
 .progressbar i{display:block;height:100%;width:0;border-radius:100px;background:var(--grad);
-  box-shadow:0 0 20px rgba(0,229,255,.6);animation:fill 3.2s ease-in-out infinite}
+  box-shadow:0 0 20px rgba(0,200,255,.65);animation:fill 3.2s ease-in-out infinite}
 @keyframes fill{0%{width:4%}55%{width:96%}100%{width:96%}}
 
 /* пузырьки */
 .bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.bub{position:absolute;border-radius:50%;border:1.5px solid rgba(0,229,255,.35);
-  background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.55),rgba(0,229,255,.08));
+.bub{position:absolute;border-radius:50%;border:1.5px solid rgba(0,200,255,.4);
+  background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.55),rgba(127,255,0,.1));
   animation:rise linear infinite}
 @keyframes rise{
   0%{transform:translateY(0) scale(.6);opacity:0}
@@ -223,14 +224,14 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 }
 .svc::before{
   content:'';position:absolute;inset:0;opacity:0;transition:.45s;
-  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(0,229,255,.16),transparent 65%);
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(0,200,255,.18),transparent 65%);
 }
-.svc:hover{transform:translateY(-8px);box-shadow:inset 0 0 0 1px rgba(0,229,255,.35),0 26px 60px rgba(0,0,0,.5)}
+.svc:hover{transform:translateY(-8px);box-shadow:inset 0 0 0 1px rgba(127,255,0,.4),0 26px 60px rgba(0,0,0,.5)}
 .svc:hover::before{opacity:1}
 .svc-ico{
   width:60px;height:60px;border-radius:18px;display:grid;place-items:center;margin-bottom:22px;
-  background:linear-gradient(140deg,rgba(0,229,255,.18),rgba(123,92,255,.14));
-  box-shadow:inset 0 0 0 1px rgba(0,229,255,.22);
+  background:linear-gradient(140deg,rgba(0,200,255,.2),rgba(127,255,0,.14));
+  box-shadow:inset 0 0 0 1px rgba(0,200,255,.28);
   transition:.45s;
 }
 .svc:hover .svc-ico{transform:scale(1.08) rotate(-6deg)}
@@ -247,17 +248,17 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
 .steps::before{
   content:'';position:absolute;top:39px;left:9%;right:9%;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(0,229,255,.5),rgba(123,92,255,.5),transparent);
+  background:linear-gradient(90deg,transparent,rgba(0,200,255,.5),rgba(127,255,0,.5),transparent);
 }
 .step{text-align:center;position:relative}
 .step-num{
   width:78px;height:78px;margin:0 auto 22px;border-radius:24px;display:grid;place-items:center;
   font-family:'Unbounded';font-weight:800;font-size:25px;
-  background:linear-gradient(150deg,rgba(0,229,255,.2),rgba(123,92,255,.14));
-  box-shadow:inset 0 0 0 1px rgba(0,229,255,.3),0 0 40px rgba(0,229,255,.16);
+  background:linear-gradient(150deg,rgba(0,200,255,.22),rgba(127,255,0,.14));
+  box-shadow:inset 0 0 0 1px rgba(0,200,255,.35),0 0 40px rgba(0,200,255,.18);
   color:#fff;position:relative;transition:.4s;
 }
-.step:hover .step-num{transform:translateY(-7px) scale(1.06);box-shadow:inset 0 0 0 1px var(--cyan),0 0 60px rgba(0,229,255,.4)}
+.step:hover .step-num{transform:translateY(-7px) scale(1.06);box-shadow:inset 0 0 0 1px var(--cyan),0 0 60px rgba(127,255,0,.5)}
 .step h4{font-size:17px;margin-bottom:10px;font-weight:700}
 .step p{font-size:14px;color:var(--muted)}
 
@@ -268,16 +269,16 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
   display:flex;gap:18px;padding:22px;border-radius:20px;
   background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;
 }
-.adv:hover{transform:translateX(8px);box-shadow:inset 0 0 0 1px rgba(37,244,193,.35);background:rgba(37,244,193,.05)}
+.adv:hover{transform:translateX(8px);box-shadow:inset 0 0 0 1px rgba(127,255,0,.4);background:rgba(127,255,0,.05)}
 .adv-ico{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;flex-shrink:0;
-  background:linear-gradient(140deg,rgba(37,244,193,.18),rgba(0,229,255,.1));box-shadow:inset 0 0 0 1px rgba(37,244,193,.24)}
+  background:linear-gradient(140deg,rgba(127,255,0,.2),rgba(0,200,255,.1));box-shadow:inset 0 0 0 1px rgba(127,255,0,.3)}
 .adv-ico svg{width:24px;height:24px;stroke:var(--aqua)}
 .adv h4{font-size:16.5px;margin-bottom:5px;font-weight:700}
 .adv p{font-size:14px;color:var(--muted)}
 
 .adv-visual{
   border-radius:30px;padding:40px;position:relative;overflow:hidden;
-  background:linear-gradient(150deg,rgba(123,92,255,.16),rgba(0,229,255,.07));
+  background:linear-gradient(150deg,rgba(127,255,0,.14),rgba(0,200,255,.07));
   box-shadow:inset 0 0 0 1px var(--stroke);
 }
 .adv-visual h3{font-size:24px;margin-bottom:28px}
@@ -299,8 +300,8 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 }
 .plan:hover{transform:translateY(-8px)}
 .plan.hot{
-  background:linear-gradient(165deg,rgba(0,229,255,.14),rgba(123,92,255,.1));
-  box-shadow:inset 0 0 0 1.5px rgba(0,229,255,.45),0 30px 70px rgba(0,229,255,.16);
+  background:linear-gradient(165deg,rgba(0,200,255,.15),rgba(127,255,0,.1));
+  box-shadow:inset 0 0 0 1.5px rgba(127,255,0,.5),0 30px 70px rgba(0,200,255,.18);
   transform:scale(1.04);
 }
 .plan.hot:hover{transform:scale(1.04) translateY(-8px)}
@@ -308,7 +309,7 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
   position:absolute;top:-13px;left:50%;transform:translateX(-50%);
   padding:7px 18px;border-radius:100px;font-size:11.5px;font-weight:800;
   letter-spacing:.08em;text-transform:uppercase;background:var(--grad);color:#04121a;white-space:nowrap;
-  box-shadow:0 8px 24px rgba(0,229,255,.4);
+  box-shadow:0 8px 24px rgba(127,255,0,.5);
 }
 .plan h3{font-size:21px;margin-bottom:8px;font-weight:700}
 .plan .desc{font-size:13.5px;color:var(--muted);margin-bottom:24px;min-height:40px}
@@ -326,7 +327,7 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
   padding:32px 30px;border-radius:24px;background:var(--card);
   box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;position:relative;
 }
-.rev:hover{transform:translateY(-7px);box-shadow:inset 0 0 0 1px rgba(255,201,60,.35)}
+.rev:hover{transform:translateY(-7px);box-shadow:inset 0 0 0 1px rgba(255,201,60,.4)}
 .stars{display:flex;gap:4px;margin-bottom:18px}
 .stars svg{width:17px;height:17px;fill:var(--gold)}
 .rev p{font-size:15px;color:#c2d2e6;margin-bottom:24px;font-style:italic}
@@ -382,7 +383,7 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
   backdrop-filter: blur(8px); z-index: 5; pointer-events: none;
 }
 .gal-label-before { left: 15px; background: rgba(255, 77, 148, .85); color: #fff; }
-.gal-label-after { right: 15px; background: rgba(37, 244, 193, .85); color: #04121a; }
+.gal-label-after { right: 15px; background: rgba(127, 255, 0, .85); color: #04121a; }
 
 @media(min-width: 1024px) {
   .gal { grid-template-columns: repeat(3, 1fr); }
@@ -401,14 +402,14 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
   border-radius:20px;margin-bottom:14px;overflow:hidden;
   background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.35s;
 }
-.faq.open{box-shadow:inset 0 0 0 1px rgba(0,229,255,.4);background:rgba(0,229,255,.04)}
+.faq.open{box-shadow:inset 0 0 0 1px rgba(127,255,0,.45);background:rgba(127,255,0,.04)}
 .faq-q{
   padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:20px;
   cursor:pointer;font-weight:700;font-size:16.5px;user-select:none;
 }
 .faq-q .plus{
   width:34px;height:34px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;
-  background:rgba(0,229,255,.1);box-shadow:inset 0 0 0 1px rgba(0,229,255,.25);
+  background:rgba(0,200,255,.12);box-shadow:inset 0 0 0 1px rgba(0,200,255,.3);
   transition:.4s;position:relative;
 }
 .faq-q .plus::before,.faq-q .plus::after{
@@ -416,34 +417,21 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 }
 .faq-q .plus::before{width:13px;height:2px}
 .faq-q .plus::after{width:2px;height:13px}
-.faq.open .plus{transform:rotate(135deg);background:rgba(0,229,255,.22)}
+.faq.open .plus{transform:rotate(135deg);background:rgba(127,255,0,.25)}
+.faq.open .plus::before,.faq.open .plus::after{background:var(--aqua)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
 .faq-a p{padding:0 28px 26px;color:var(--muted);font-size:15px;max-width:90%}
 
-/* ============ О КОМПАНИИ ============ */
-.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
-.about-grid p{color:#b3c4dc;font-size:16px;margin-bottom:18px}
-.about-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+/* ============ О КОМПАНИИ (без команды) ============ */
+.about-single{max-width:840px;margin:0 auto}
+.about-single p{color:#b3c4dc;font-size:16.5px;margin-bottom:18px;line-height:1.75}
+.about-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
 .badge{
   padding:11px 18px;border-radius:14px;font-size:13.5px;font-weight:700;
   background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--stroke);
   display:flex;align-items:center;gap:9px;
 }
-.badge svg{width:16px;height:16px;stroke:var(--cyan)}
-
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.team-card{
-  padding:28px 24px;border-radius:22px;text-align:center;
-  background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;
-}
-.team-card:hover{transform:translateY(-7px);box-shadow:inset 0 0 0 1px rgba(0,229,255,.35)}
-.team-av{
-  width:74px;height:74px;border-radius:22px;margin:0 auto 18px;display:grid;place-items:center;
-  font-family:'Unbounded';font-weight:800;font-size:26px;color:#04121a;background:var(--grad);
-  box-shadow:0 12px 36px rgba(0,229,255,.3);
-}
-.team-card b{display:block;font-size:16px;margin-bottom:5px;font-weight:700}
-.team-card span{font-size:13px;color:var(--muted)}
+.badge svg{width:16px;height:16px;stroke:var(--aqua)}
 
 /* ============ КОНТАКТЫ ============ */
 .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:50px;align-items:start}
@@ -452,10 +440,10 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
   display:flex;gap:18px;padding:24px;border-radius:20px;
   background:var(--card);box-shadow:inset 0 0 0 1px var(--stroke);transition:.4s;
 }
-.cinfo:hover{box-shadow:inset 0 0 0 1px rgba(0,229,255,.35);transform:translateX(6px)}
+.cinfo:hover{box-shadow:inset 0 0 0 1px rgba(0,200,255,.4);transform:translateX(6px)}
 .cinfo-ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;flex-shrink:0;
-  background:linear-gradient(140deg,rgba(0,229,255,.18),rgba(123,92,255,.12));
-  box-shadow:inset 0 0 0 1px rgba(0,229,255,.24)}
+  background:linear-gradient(140deg,rgba(0,200,255,.2),rgba(127,255,0,.12));
+  box-shadow:inset 0 0 0 1px rgba(0,200,255,.3)}
 .cinfo-ico svg{width:24px;height:24px;stroke:var(--cyan)}
 .cinfo small{display:block;font-size:12.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
 .cinfo b{font-size:19px;font-weight:800;font-family:'Unbounded';letter-spacing:-.01em}
@@ -464,7 +452,7 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 
 .form-card{
   padding:40px;border-radius:28px;position:relative;overflow:hidden;
-  background:linear-gradient(160deg,rgba(0,229,255,.09),rgba(123,92,255,.07));
+  background:linear-gradient(160deg,rgba(0,200,255,.1),rgba(127,255,0,.07));
   box-shadow:inset 0 0 0 1px var(--stroke),0 30px 80px rgba(0,0,0,.5);
 }
 .form-card h3{font-size:25px;margin-bottom:9px}
@@ -477,16 +465,16 @@ h2.title{font-size:clamp(30px,4.4vw,52px);font-weight:800;margin-bottom:18px}
 }
 .field input::placeholder,.field textarea::placeholder{color:#5f7391}
 .field input:focus,.field select:focus,.field textarea:focus{
-  border-color:rgba(0,229,255,.6);box-shadow:0 0 0 4px rgba(0,229,255,.1);background:rgba(5,8,15,.85);
+  border-color:rgba(127,255,0,.6);box-shadow:0 0 0 4px rgba(127,255,0,.12);background:rgba(5,8,15,.85);
 }
 .field select{appearance:none;cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300e5ff' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300c8ff' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 18px center;background-size:18px}
 .field select option{background:#0a1120;color:#fff}
 .field textarea{resize:vertical;min-height:96px}
 .form-note{font-size:12.5px;color:var(--muted);margin-top:14px;text-align:center}
-.ok-msg{display:none;padding:16px;border-radius:14px;background:rgba(37,244,193,.12);
-  box-shadow:inset 0 0 0 1px rgba(37,244,193,.35);color:var(--aqua);font-weight:700;text-align:center;margin-top:16px}
+.ok-msg{display:none;padding:16px;border-radius:14px;background:rgba(127,255,0,.12);
+  box-shadow:inset 0 0 0 1px rgba(127,255,0,.4);color:var(--aqua);font-weight:700;text-align:center;margin-top:16px}
 
 /* ============ ФУТЕР ============ */
 footer{
@@ -512,20 +500,18 @@ footer{
   position:fixed;right:26px;bottom:26px;z-index:99;
   width:64px;height:64px;border-radius:22px;display:grid;place-items:center;
   background:var(--grad);color:#04121a;
-  box-shadow:0 14px 44px rgba(0,229,255,.5);
+  box-shadow:0 14px 44px rgba(0,200,255,.55);
   transition:.35s;animation:fabPulse 2.6s ease-in-out infinite;
 }
 .fab:hover{transform:scale(1.1) rotate(-6deg)}
 .fab svg{width:28px;height:28px}
-@keyframes fabPulse{0%,100%{box-shadow:0 14px 44px rgba(0,229,255,.5)}50%{box-shadow:0 14px 60px rgba(0,229,255,.85)}}
+@keyframes fabPulse{0%,100%{box-shadow:0 14px 44px rgba(0,200,255,.55)}50%{box-shadow:0 14px 60px rgba(127,255,0,.85)}}
 
 /* ============ АНИМАЦИЯ ПОЯВЛЕНИЯ ============ */
 .reveal{opacity:0;transform:translateY(38px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
 
 /* ============ ПРОМЕЖУТОЧНЫЙ АДАПТИВ ============ */
-
-/* Планшет/маленький ноутбук: 1100-1400px — сжимаем всё */
 @media(max-width:1400px){
   .nav{padding:0 20px;gap:12px}
   .menu{gap:0}
@@ -537,8 +523,6 @@ footer{
   .nav-right{gap:10px}
   .nav-right .btn{padding:11px 20px;font-size:13.5px}
 }
-
-/* Очень узкий десктоп: 1100-1200px — максимально сжимаем */
 @media(max-width:1200px){
   .nav{padding:0 16px;gap:10px}
   .menu a{padding:7px 8px;font-size:11.5px;border-radius:8px}
@@ -551,12 +535,9 @@ footer{
   .nav-right{gap:8px}
 }
 
-/* Бургер-меню для мобильных и узких экранов */
+/* Бургер-меню */
 @media(max-width:1080px){
-  /* Скрываем телефон */
   .nav-phone{display:none !important}
-  
-  /* Фон шапке всегда */
   header{
     background:rgba(5,8,15,.85);
     border-bottom:1px solid var(--stroke);
@@ -564,8 +545,6 @@ footer{
   header.scrolled{
     background:rgba(5,8,15,.95);
   }
-  
-  /* Показываем бургер, прячем обычное меню */
   .burger{display:block}
   .menu{
     position:absolute;
@@ -611,13 +590,12 @@ footer{
   .menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
   .menu a.active{
     color:#fff;
-    background:rgba(0,229,255,.12);
-    box-shadow:inset 0 0 0 1px rgba(0,229,255,.25);
+    background:rgba(0,200,255,.15);
+    box-shadow:inset 0 0 0 1px rgba(0,200,255,.35);
   }
-  
   .nav-right .btn{padding:10px 18px;font-size:13px}
   
-  .hero-grid,.adv-wrap,.about-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
+  .hero-grid,.adv-wrap,.contact-grid{grid-template-columns:1fr;gap:50px}
   .hero-visual{height:auto;order:-1}
   .svc-grid,.price-grid,.rev-grid{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:repeat(2,1fr);gap:36px 20px}
@@ -629,7 +607,7 @@ footer{
 @media(max-width:680px){
   section{padding:76px 0}
   .wrap{padding:0 18px}
-  .svc-grid,.price-grid,.rev-grid,.team-grid{grid-template-columns:1fr}
+  .svc-grid,.price-grid,.rev-grid{grid-template-columns:1fr}
   .gal{grid-template-columns:1fr}
   .gal-item{height:280px!important}
   .gal-item:nth-child(1),.gal-item:nth-child(4),.gal-item:nth-child(7){grid-column:span 1!important}
@@ -662,7 +640,7 @@ footer{
 <header id="header">
   <div class="nav">
     <a href="#hero" class="logo">
-      <img src="img/logo.jpg" alt="TerCleaN" class="logo-img" onerror="this.src='https://via.placeholder.com/52/00e5ff/04121a?text=T'">
+      <img src="img/logo.jpg" alt="TerCleaN" class="logo-img" onerror="this.src='https://via.placeholder.com/52/ffffff/00c8ff?text=T'">
       <div>
         TerCleaN
         <small>Ростов-на-Дону</small>
@@ -731,20 +709,20 @@ footer{
           <svg class="sofa-svg" viewBox="0 0 320 180" fill="none">
             <defs>
               <linearGradient id="sofaG" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#00e5ff"/><stop offset="1" stop-color="#7b5cff"/>
+                <stop offset="0" stop-color="#00c8ff"/><stop offset="1" stop-color="#7fff00"/>
               </linearGradient>
             </defs>
             <rect x="20" y="70" width="280" height="62" rx="20" fill="url(#sofaG)" opacity=".22" stroke="url(#sofaG)" stroke-width="1.6"/>
             <rect x="36" y="46" width="248" height="40" rx="16" fill="url(#sofaG)" opacity=".14" stroke="url(#sofaG)" stroke-width="1.4"/>
             <rect x="8" y="82" width="34" height="52" rx="14" fill="url(#sofaG)" opacity=".28" stroke="url(#sofaG)" stroke-width="1.4"/>
             <rect x="278" y="82" width="34" height="52" rx="14" fill="url(#sofaG)" opacity=".28" stroke="url(#sofaG)" stroke-width="1.4"/>
-            <circle cx="70" cy="132" r="4" fill="#00e5ff" opacity=".9"/>
-            <circle cx="250" cy="132" r="4" fill="#7b5cff" opacity=".9"/>
-            <path d="M60 70 Q110 40 160 70" stroke="#25f4c1" stroke-width="2.2" stroke-linecap="round" opacity=".85" fill="none"/>
-            <path d="M150 108 Q200 88 250 108" stroke="#00e5ff" stroke-width="2.2" stroke-linecap="round" opacity=".55" fill="none"/>
-            <circle cx="238" cy="46" r="7" fill="#25f4c1" opacity=".55"/>
-            <circle cx="262" cy="34" r="4.5" fill="#00e5ff" opacity=".45"/>
-            <circle cx="52" cy="38" r="5.5" fill="#7b5cff" opacity=".5"/>
+            <circle cx="70" cy="132" r="4" fill="#00c8ff" opacity=".9"/>
+            <circle cx="250" cy="132" r="4" fill="#7fff00" opacity=".9"/>
+            <path d="M60 70 Q110 40 160 70" stroke="#7fff00" stroke-width="2.2" stroke-linecap="round" opacity=".85" fill="none"/>
+            <path d="M150 108 Q200 88 250 108" stroke="#00c8ff" stroke-width="2.2" stroke-linecap="round" opacity=".55" fill="none"/>
+            <circle cx="238" cy="46" r="7" fill="#7fff00" opacity=".55"/>
+            <circle cx="262" cy="34" r="4.5" fill="#00c8ff" opacity=".45"/>
+            <circle cx="52" cy="38" r="5.5" fill="#7fff00" opacity=".5"/>
           </svg>
           <div class="sofa-caption">Глубокая экстракция</div>
           <div class="sofa-sub">Пылесос + пар + профессиональный шампунь</div>
@@ -1084,8 +1062,8 @@ footer{
     <div class="gal">
       <div class="gal-item reveal">
         <div class="ba-slider">
-          <img src="img/div-1.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-1.1'">
-          <img src="img/div-1.3.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-1.3'">
+          <img src="img/div-1.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00c8ff?text=div-1.1'">
+          <img src="img/div-1.3.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/7fff00?text=div-1.3'">
           <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
           <span class="gal-label-before">До</span>
           <span class="gal-label-after">После</span>
@@ -1095,8 +1073,8 @@ footer{
 
       <div class="gal-item reveal">
         <div class="ba-slider">
-          <img src="img/div-1.2.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-1.2'">
-          <img src="img/div-1.4.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-1.4'">
+          <img src="img/div-1.2.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00c8ff?text=div-1.2'">
+          <img src="img/div-1.4.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/7fff00?text=div-1.4'">
           <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
           <span class="gal-label-before">До</span>
           <span class="gal-label-after">После</span>
@@ -1106,8 +1084,8 @@ footer{
 
       <div class="gal-item reveal">
         <div class="ba-slider">
-          <img src="img/div-2.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-2.1'">
-          <img src="img/div-2.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-2.2'">
+          <img src="img/div-2.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00c8ff?text=div-2.1'">
+          <img src="img/div-2.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/7fff00?text=div-2.2'">
           <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
           <span class="gal-label-before">До</span>
           <span class="gal-label-after">После</span>
@@ -1117,8 +1095,8 @@ footer{
 
       <div class="gal-item reveal">
         <div class="ba-slider">
-          <img src="img/div-3.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-3.1'">
-          <img src="img/div-3.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-3.2'">
+          <img src="img/div-3.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00c8ff?text=div-3.1'">
+          <img src="img/div-3.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/7fff00?text=div-3.2'">
           <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
           <span class="gal-label-before">До</span>
           <span class="gal-label-after">После</span>
@@ -1128,8 +1106,8 @@ footer{
 
       <div class="gal-item reveal">
         <div class="ba-slider">
-          <img src="img/div-4.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-4.1'">
-          <img src="img/div-4.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-4.2'">
+          <img src="img/div-4.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00c8ff?text=div-4.1'">
+          <img src="img/div-4.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/7fff00?text=div-4.2'">
           <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
           <span class="gal-label-before">До</span>
           <span class="gal-label-after">После</span>
@@ -1139,8 +1117,8 @@ footer{
 
       <div class="gal-item reveal">
         <div class="ba-slider">
-          <img src="img/div-5.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-5.1'">
-          <img src="img/div-5.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-5.2'">
+          <img src="img/div-5.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00c8ff?text=div-5.1'">
+          <img src="img/div-5.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/7fff00?text=div-5.2'">
           <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
           <span class="gal-label-before">До</span>
           <span class="gal-label-after">После</span>
@@ -1150,8 +1128,8 @@ footer{
 
       <div class="gal-item reveal">
         <div class="ba-slider">
-          <img src="img/div-6.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00e5ff?text=div-6.1'">
-          <img src="img/div-6.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/25f4c1?text=div-6.2'">
+          <img src="img/div-6.1.jpg" class="ba-img" alt="До чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/00c8ff?text=div-6.1'">
+          <img src="img/div-6.2.jpg" class="ba-img ba-after" alt="После чистки" onerror="this.src='https://via.placeholder.com/600x400/0c1526/7fff00?text=div-6.2'">
           <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Сравнение до и после">
           <span class="gal-label-before">До</span>
           <span class="gal-label-after">После</span>
@@ -1210,46 +1188,21 @@ footer{
   </div>
 </section>
 
-<!-- ================= 9. О КОМПАНИИ ================= -->
+<!-- ================= 9. О КОМПАНИИ (без команды) ================= -->
 <section id="about">
   <div class="wrap">
-    <div class="about-grid">
-      <div class="reveal">
-        <div class="eyebrow"><span class="dot"></span>О компании</div>
-        <h2 class="title">TerCleaN — <span class="grad-txt">7 лет</span> заботы о вашем доме</h2>
-        <p>Мы — ростовская команда мастеров, которая с 2018 года занимается профессиональной химчисткой мягкой мебели. Начинали с одной машины и двух мастеров, а сегодня это полноценная служба с собственным автопарком, складом профессиональной химии и штатом сертифицированных специалистов.</p>
-        <p>Мы принципиально не работаем «на потоке»: каждый заказ ведёт один мастер от начала до конца. Он же даёт гарантию и отвечает за результат. Именно поэтому 6 из 10 клиентов возвращаются к нам снова и рекомендуют друзьям.</p>
-        <p>Работаем без выходных, с 8:00 до 22:00. Приезжаем в любой район Ростова-на-Дону в течение часа после звонка.</p>
+    <div class="about-single reveal">
+      <div class="eyebrow"><span class="dot"></span>О компании</div>
+      <h2 class="title">TerCleaN — <span class="grad-txt">7 лет</span> заботы о вашем доме</h2>
+      <p>Мы — ростовская команда мастеров, которая с 2018 года занимается профессиональной химчисткой мягкой мебели. Начинали с одной машины и двух мастеров, а сегодня это полноценная служба с собственным автопарком, складом профессиональной химии и штатом сертифицированных специалистов.</p>
+      <p>Мы принципиально не работаем «на потоке»: каждый заказ ведёт один мастер от начала до конца. Он же даёт гарантию и отвечает за результат. Именно поэтому 6 из 10 клиентов возвращаются к нам снова и рекомендуют друзьям.</p>
+      <p>Работаем без выходных, с 8:00 до 22:00. Приезжаем в любой район Ростова-на-Дону в течение часа после звонка.</p>
 
-        <div class="about-badges">
-          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Сертифицированные мастера</div>
-          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Немецкое оборудование</div>
-          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Без предоплаты</div>
-          <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Работаем 7 дней в неделю</div>
-        </div>
-      </div>
-
-      <div class="team-grid reveal">
-        <div class="team-card">
-          <div class="team-av">И</div>
-          <b>Игорь</b>
-          <span>Ведущий мастер · 9 лет опыта</span>
-        </div>
-        <div class="team-card">
-          <div class="team-av">М</div>
-          <b>Марина</b>
-          <span>Технолог по тканям · 6 лет</span>
-        </div>
-        <div class="team-card">
-          <div class="team-av">С</div>
-          <b>Сергей</b>
-          <span>Мастер выезда · 7 лет опыта</span>
-        </div>
-        <div class="team-card">
-          <div class="team-av">О</div>
-          <b>Ольга</b>
-          <span>Координатор заказов</span>
-        </div>
+      <div class="about-badges">
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Сертифицированные мастера</div>
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Немецкое оборудование</div>
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Без предоплаты</div>
+        <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>Работаем 7 дней в неделю</div>
       </div>
     </div>
   </div>
@@ -1356,7 +1309,7 @@ footer{
     <div class="foot-top">
       <div class="foot-about">
         <a href="#hero" class="logo">
-          <img src="img/logo.jpg" alt="TerCleaN" class="logo-img" onerror="this.src='https://via.placeholder.com/52/00e5ff/04121a?text=T'">
+          <img src="img/logo.jpg" alt="TerCleaN" class="logo-img" onerror="this.src='https://via.placeholder.com/52/ffffff/00c8ff?text=T'">
           <div>TerCleaN<small>Ростов-на-Дону</small></div>
         </a>
         <p>Профессиональная химчистка мягкой мебели на дому. Работаем с 2018 года, более 12 400 довольных клиентов.</p>
